@@ -297,7 +297,7 @@ namespace PlayerObject
                         IDamageable damageable = rayHit.collider.gameObject.GetComponent<IDamageable>();
                         if (damageable != null)
                         {
-                            damageable.RecieveDamage(damage);
+                            damageable.ReceiveDamage(damage);
                         }
 
                         if (tracer != null && currentBulletsBetweenTracers == bulletsBetweenTracers)

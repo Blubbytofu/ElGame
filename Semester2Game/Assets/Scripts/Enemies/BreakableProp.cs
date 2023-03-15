@@ -13,7 +13,9 @@ public class BreakableProp : MonoBehaviour, IDamageable
     [SerializeField] private float explosionForce;
     [SerializeField] private float torqueForce;
 
-    public void RecieveDamage(int damage)
+    [SerializeField] private DropLoot dropLoot;
+
+    public void ReceiveDamage(int damage)
     {
         health -= damage;
         if (health <= 0 && !dead)
@@ -32,6 +34,11 @@ public class BreakableProp : MonoBehaviour, IDamageable
                 }
 
                 Destroy(deathSpawnObj, deathSpawnAliveTime);
+            }
+
+            if (dropLoot != null)
+            {
+                dropLoot.InstantiateLoot();
             }
         }
     }

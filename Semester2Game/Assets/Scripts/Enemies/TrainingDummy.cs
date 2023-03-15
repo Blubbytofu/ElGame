@@ -63,7 +63,7 @@ public class TrainingDummy : MonoBehaviour, IDamageable
         }
     }
 
-    public void RecieveDamage(int damage)
+    public void ReceiveDamage(int damage)
     {
         float newDamage = (damage - damageAbsorption) * damageMultiplier;
 
