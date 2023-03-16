@@ -7,9 +7,24 @@ public class Button : MonoBehaviour, IInteractable
     [SerializeField] private GameObject assignedObject;
     [SerializeField] private bool buttonState;
 
+    [SerializeField] private bool canUseOnce;
+    private bool used;
+
     public void Interact(GameObject source)
     {
-        assignedObject.GetComponent<IInteractable>().Interact(gameObject);
-        buttonState = !buttonState;
+        if (canUseOnce)
+        {
+            if (!used)
+            {
+                used = true;
+                assignedObject.GetComponent<IInteractable>().Interact(gameObject);
+                buttonState = !buttonState;
+            }
+        }
+        else
+        {
+            assignedObject.GetComponent<IInteractable>().Interact(gameObject);
+            buttonState = !buttonState;
+        }
     }
 }
