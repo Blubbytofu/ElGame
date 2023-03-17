@@ -211,7 +211,7 @@ namespace PlayerObject
                 StartCoroutine(ResetGroundSnap());
             }
 
-            if (!jumpingUpStage && playerRb.velocity.y < -fallingThreshold && !fallingDownStage)
+            if (!jumpingUpStage && playerRb.velocity.y < -fallingThreshold && !fallingDownStage && !isGrounded)
             {
                 fallingDownStage = true;
             }

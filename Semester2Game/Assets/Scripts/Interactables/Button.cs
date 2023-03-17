@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Button : MonoBehaviour, IInteractable
 {
-    [SerializeField] private GameObject assignedObject;
+    [SerializeField] private GameObject[] assignedObjects;
     [SerializeField] private bool buttonState;
 
     [SerializeField] private bool canUseOnce;
@@ -17,13 +17,19 @@ public class Button : MonoBehaviour, IInteractable
             if (!used)
             {
                 used = true;
-                assignedObject.GetComponent<IInteractable>().Interact(gameObject);
+                foreach (GameObject obj in assignedObjects)
+                {
+                    obj.GetComponent<IInteractable>().Interact(gameObject);
+                }
                 buttonState = !buttonState;
             }
         }
         else
         {
-            assignedObject.GetComponent<IInteractable>().Interact(gameObject);
+            foreach (GameObject obj in assignedObjects)
+            {
+                obj.GetComponent<IInteractable>().Interact(gameObject);
+            }
             buttonState = !buttonState;
         }
     }
