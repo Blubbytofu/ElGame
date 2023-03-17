@@ -496,7 +496,7 @@ namespace PlayerObject
                         }
                         else
                         {
-                            playerRb.velocity = new Vector3(playerRb.velocity.x, 0, playerRb.velocity.z);
+                            playerRb.velocity = new Vector3(playerRb.velocity.x, -0.1f, playerRb.velocity.z);
                         }
 
                         doGroundSnapCooldown = true;

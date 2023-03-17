@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class RangedEnemy : MonoBehaviour, IDamageable
 {
     [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private DropLoot dropLoot;
     [SerializeField] private GameObject player;
     //[SerializeField] private GameManager gameManager;
     [SerializeField] private LayerMask groundMask, playerMask;
@@ -18,6 +19,7 @@ public class RangedEnemy : MonoBehaviour, IDamageable
     [SerializeField] private float walkPointRange;
 
     [SerializeField] private float doorRange;
+    [SerializeField] private float atPointRange;
 
     [SerializeField] private float timeBetweenAttacks;
     private bool alreadyAttacked;
@@ -27,10 +29,6 @@ public class RangedEnemy : MonoBehaviour, IDamageable
 
     [SerializeField] private float sightRange, attackRange;
     private bool playerInSightRange, playerInAttackRange;
-
-    [SerializeField] private GameObject[] loots;
-    [SerializeField] private float dropRadius;
-    [SerializeField] private int lootNumber;
 
     private bool isDead;
 
@@ -99,7 +97,7 @@ public class RangedEnemy : MonoBehaviour, IDamageable
         }
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
-        if (distanceToWalkPoint.magnitude < 1f)
+        if (distanceToWalkPoint.magnitude < atPointRange)
         {
             walkPointSet = false;
         }
@@ -151,17 +149,12 @@ public class RangedEnemy : MonoBehaviour, IDamageable
             isDead = true;
             Destroy(gameObject);
             //gameManager.enemiesKilled++;
-            for (int k = 0; k < lootNumber; k++)
+
+            if (dropLoot != null)
             {
-                DropLoot();
+                dropLoot.InstantiateLoot();
             }
         }
-    }
-
-    private void DropLoot()
-    {
-        int randNum = Random.Range(0, loots.Length);
-        Instantiate(loots[randNum], transform.position + new Vector3(Random.Range(-dropRadius, dropRadius), 0, Random.Range(-dropRadius, dropRadius)), Quaternion.identity);
     }
 
     private void OnDrawGizmosSelected()

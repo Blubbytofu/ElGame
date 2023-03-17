@@ -23,4 +23,13 @@ public class EnemySpawner : MonoBehaviour, IInteractable
             }
         }
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        foreach (Vector3 point in correspondingSpawnPoints)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(point, 0.35f);
+        }
+    }
 }
