@@ -92,7 +92,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3486150447599171158}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.99999994, y: 1, z: 0.99999994}
@@ -189,7 +189,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4376036213209072666}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.99999994, y: 1, z: 0.99999994}
@@ -290,7 +290,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5800216031247878002}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
@@ -343,9 +343,9 @@ MonoBehaviour:
   walkPointRange: 5
   doorRange: 0
   atPointRange: 0.2
-  timeBetweenAttacks: 0.3
+  timeBetweenAttacks: 1
   projectile: {fileID: 3722781976886384385, guid: 2f1976b7fbb00864f93a91d50756bd13, type: 3}
   projectileVel: 50
-  bulletSpread: 2
+  bulletSpread: 1
   sightRange: 128
   attackRange: 64

@@ -36232,10 +36232,10 @@ RectTransform:
   - {fileID: 8261380307310933643}
   - {fileID: 2062473381282529077}
   - {fileID: 112108558214708730}
-  - {fileID: 1385870147}
   - {fileID: 1046706933}
   - {fileID: 422589685}
   - {fileID: 26640758}
+  - {fileID: 1385870147}
   m_Father: {fileID: 8261380307248989584}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

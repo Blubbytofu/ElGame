@@ -490,13 +490,25 @@ namespace PlayerObject
                 {
                     if (Vector3.Angle(hit.normal, Vector3.up) < maxGroundAngle)
                     {
+                        /*
+                        if (playerRb.velocity.y > 0)
+                        {
+                            playerRb.velocity = new Vector3(playerRb.velocity.x, 0f, playerRb.velocity.z);
+                        }
+
+                        if (playerRb.velocity.y > -groundSnapVel && playerRb.velocity.y <= 0)
+                        {
+                            playerRb.velocity -= groundSnapVel * orientationTransform.up;
+                        }
+                        */
+
                         if (playerRb.velocity.y > -groundSnapVel && playerRb.velocity.y < 0)
                         {
                             playerRb.velocity -= groundSnapVel * orientationTransform.up;
                         }
-                        else
+                        else if (playerRb.velocity.y >= 0)
                         {
-                            playerRb.velocity = new Vector3(playerRb.velocity.x, -0.1f, playerRb.velocity.z);
+                            playerRb.velocity = new Vector3(playerRb.velocity.x, 0f, playerRb.velocity.z);
                         }
 
                         doGroundSnapCooldown = true;
@@ -523,6 +535,9 @@ namespace PlayerObject
         {
             playerRb.useGravity = false;
             playerRb.drag = groundDrag;
+
+            RaycastHit hit;
+            Physics.Raycast(orientationTransform.position, -orientationTransform.up, out hit, environmentMask);
 
             Vector3 moveD = vInput * orientationTransform.forward + hInput * orientationTransform.right;
             moveD = Vector3.ProjectOnPlane(moveD, groundHit.normal);

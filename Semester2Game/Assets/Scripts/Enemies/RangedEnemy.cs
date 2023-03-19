@@ -128,7 +128,7 @@ public class RangedEnemy : MonoBehaviour, IDamageable
         if (!alreadyAttacked)
         {
             Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce((player.transform.position - transform.position).normalized * projectileVel, ForceMode.Impulse);
+            rb.AddForce((target - transform.position).normalized * projectileVel, ForceMode.Impulse);
             alreadyAttacked = true;
             StartCoroutine(ResetAttack());
         }
