@@ -7,6 +7,8 @@ TagManager:
   - Weapon
   - Death
   - Water
+  - Ladder
+  - Exit
   layers:
   - Default
   - TransparentFX

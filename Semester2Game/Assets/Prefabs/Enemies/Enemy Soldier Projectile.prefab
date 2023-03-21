@@ -111,6 +111,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4483fa61ae0f09d48bc82c05a436a650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileCollider: {fileID: 3722781976886384399}
+  ignoreMask:
+    serializedVersion: 2
+    m_Bits: 512
   damage: 8
 --- !u!54 &-3203558935288708879
 Rigidbody:

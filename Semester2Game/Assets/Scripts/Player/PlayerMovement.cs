@@ -82,6 +82,11 @@ namespace PlayerObject
         private bool onLadder;
         private bool ladderLeave;
 
+        [Header("NoClip-----------------------------------------------------------------------------")]
+        [SerializeField] private float maxNoClipVel;
+        [SerializeField] private float noClipDrag;
+        private bool doNoClip;
+
         private enum MovementState
         {
             GROUNDED,
@@ -143,8 +148,10 @@ namespace PlayerObject
                     Crouching();
                     break;
                 case MovementState.NOCLIP:
+                    MoveNoClip();
                     break;
                 case MovementState.STUNNED:
+                    //intentionally blank for now
                     break;
             }
         }
@@ -219,7 +226,11 @@ namespace PlayerObject
 
         private void DetermineMovementState()
         {
-            if (inWater)
+            if (doNoClip)
+            {
+                movementState = MovementState.NOCLIP;
+            }
+            else if (inWater)
             {
                 movementState = MovementState.WATER;
             }
@@ -239,7 +250,14 @@ namespace PlayerObject
 
         private void GetInput()
         {
-            if (inWater)
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                doNoClip = !doNoClip;
+                playerRb.velocity = Vector3.zero;
+                playerCollider.isTrigger = doNoClip;
+            }
+
+            if (inWater || doNoClip)
             {
                 if (Input.GetKey(KeyCode.Space))
                 {
@@ -329,6 +347,20 @@ namespace PlayerObject
             else
             {
                 hInput = 0;
+            }
+        }
+
+        private void MoveNoClip()
+        {
+            playerRb.useGravity = false;
+            playerRb.drag = noClipDrag;
+
+            Vector3 moveD = vInput * orientationTransform.forward + hInput * orientationTransform.right + upwardsInput * orientationTransform.up;
+            moveD.Normalize();
+
+            if (playerRb.velocity.magnitude < maxNoClipVel)
+            {
+                playerRb.velocity += (maxNoClipVel - playerRb.velocity.magnitude) * moveD;
             }
         }
 
@@ -535,9 +567,6 @@ namespace PlayerObject
         {
             playerRb.useGravity = false;
             playerRb.drag = groundDrag;
-
-            RaycastHit hit;
-            Physics.Raycast(orientationTransform.position, -orientationTransform.up, out hit, environmentMask);
 
             Vector3 moveD = vInput * orientationTransform.forward + hInput * orientationTransform.right;
             moveD = Vector3.ProjectOnPlane(moveD, groundHit.normal);

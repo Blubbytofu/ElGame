@@ -47279,6 +47279,8 @@ MonoBehaviour:
   ladderLeaveForce: 20
   ladderJumpForce: 400
   ladderFirstMoveDelay: 0.1
+  maxNoClipVel: 0
+  noClipDrag: 0
 --- !u!114 &8261380307373194707
 MonoBehaviour:
   m_ObjectHideFlags: 0
