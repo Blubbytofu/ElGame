@@ -25,6 +25,8 @@ namespace PlayerObject
         public GameObject oxygenIndicator;
         [SerializeField] private GameObject altIndicator;
 
+        [SerializeField] private TextMeshProUGUI gameCompletionStatsText;
+
         [SerializeField] private float levelIntroTime;
 
         private void Start()
@@ -73,6 +75,11 @@ namespace PlayerObject
             }
         }
 
+        public void SetGameCompletionTime()
+        {
+            gameCompletionStatsText.text = gameManager.GetPassedTime();
+        }
+
         public void SetGameHUDVisible(bool state)
         {
             gameHUD.SetActive(state);
@@ -86,6 +93,7 @@ namespace PlayerObject
         public void SetWonGameMenuVisible(bool state)
         {
             gameWinMenu.SetActive(state);
+            SetGameCompletionTime();
         }
 
         public void UpdateWeapon(string weaponName, int currentAmmo, int maxAmmo)

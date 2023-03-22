@@ -36333,6 +36333,7 @@ MonoBehaviour:
   oxygenText: {fileID: 8261380305799050757}
   oxygenIndicator: {fileID: 8261380307265084604}
   altIndicator: {fileID: 8261380306025479427}
+  gameCompletionStatsText: {fileID: 0}
   levelIntroTime: 2
 --- !u!114 &2107729607
 MonoBehaviour:
