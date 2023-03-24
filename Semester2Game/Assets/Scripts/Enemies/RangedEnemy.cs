@@ -10,7 +10,9 @@ public class RangedEnemy : MonoBehaviour, IDamageable
     [SerializeField] private GameObject player;
     //[SerializeField] private GameManager gameManager;
     [SerializeField] private LayerMask groundMask, playerMask;
-    //[SerializeField] private GameObject spawnEffect;
+    [SerializeField] private GameObject spawnEffect;
+    [SerializeField] private Transform attackPoint;
+    [SerializeField] private Collider[] childHitBoxes;
 
     [SerializeField] private float health;
 
@@ -21,7 +23,7 @@ public class RangedEnemy : MonoBehaviour, IDamageable
     [SerializeField] private float doorRange;
     [SerializeField] private float atPointRange;
 
-    [SerializeField] private float timeBetweenAttacks;
+    [SerializeField] private float attackDelay;
     private bool alreadyAttacked;
     [SerializeField] private GameObject projectile;
     [SerializeField] private float projectileVel;
@@ -34,7 +36,11 @@ public class RangedEnemy : MonoBehaviour, IDamageable
 
     private void Awake()
     {
-        //Instantiate(spawnEffect, transform.position, Quaternion.identity);
+        if (spawnEffect != null)
+        {
+            Instantiate(spawnEffect, transform.position, Quaternion.identity);
+        }
+
         player = GameObject.Find("Player");
         //gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         //CheckDoor();
@@ -86,6 +92,7 @@ public class RangedEnemy : MonoBehaviour, IDamageable
         if (walkPointSet)
         {
             agent.SetDestination(walkPoint);
+
             if (!agent.hasPath)
             {
                 walkPointSet = false;
@@ -123,13 +130,16 @@ public class RangedEnemy : MonoBehaviour, IDamageable
     {
         Vector3 target = player.transform.position + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, bulletSpread));
 
-        transform.LookAt(new Vector3(target.x, transform.position.y, target.z));
-
         if (!alreadyAttacked)
         {
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            Physics.IgnoreCollision(rb.gameObject.GetComponent<Collider>(), GetComponent<Collider>(), true);
-            rb.AddForce((target - transform.position).normalized * projectileVel, ForceMode.Impulse);
+            Rigidbody rb = Instantiate(projectile, attackPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
+            foreach (Collider collider in childHitBoxes)
+            {
+                Physics.IgnoreCollision(rb.gameObject.GetComponent<Collider>(), collider, true);
+            }
+
+            rb.AddForce((target - attackPoint.position).normalized * projectileVel, ForceMode.Impulse);
+
             alreadyAttacked = true;
             StartCoroutine(ResetAttack());
         }
@@ -137,7 +147,7 @@ public class RangedEnemy : MonoBehaviour, IDamageable
 
     private IEnumerator ResetAttack()
     {
-        yield return new WaitForSeconds(timeBetweenAttacks);
+        yield return new WaitForSeconds(attackDelay);
         alreadyAttacked = false;
     }
 

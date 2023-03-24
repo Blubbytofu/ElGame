@@ -33,6 +33,8 @@ namespace PlayerObject
         [SerializeField] private float groundSnapVel;
         [SerializeField] private float groundSnapCooldown;
         private bool doGroundSnapCooldown;
+        private float movingTime;
+        [SerializeField] private float maxAccelerationTime;
 
         [Header("In The Air-----------------------------------------------------------------------------")]
         [SerializeField] private float gravityMagnitude;
@@ -572,7 +574,22 @@ namespace PlayerObject
             moveD = Vector3.ProjectOnPlane(moveD, groundHit.normal);
             moveD.Normalize();
 
+            if (moveD == Vector3.zero)
+            {
+                movingTime = 0;
+            }
+            else
+            {
+                movingTime += Time.deltaTime;
+            }
+
             float maxVel = walkingInput ? maxGroundedVel * walkingVelMultiplier : (crouchInput ? maxGroundedVel * crouchSpeedMultiplier : maxGroundedVel);
+
+
+            if (movingTime < maxAccelerationTime)
+            {
+                maxVel *= movingTime / maxAccelerationTime;
+            }
 
             if (playerRb.velocity.magnitude < maxVel)
             {

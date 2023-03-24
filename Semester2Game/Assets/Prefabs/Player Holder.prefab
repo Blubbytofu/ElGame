@@ -47257,6 +47257,7 @@ MonoBehaviour:
   maxGroundAngle: 45
   groundSnapVel: 7
   groundSnapCooldown: 0.05
+  maxAccelerationTime: 0
   gravityMagnitude: 20
   maxAirVel: 10
   airSpeed: 1
