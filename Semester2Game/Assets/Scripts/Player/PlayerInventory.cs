@@ -36,6 +36,8 @@ namespace PlayerObject
         [field: SerializeField] public bool hasBlueKey { get; private set; }
         [field: SerializeField] public bool hasRedKey { get; private set; }
 
+        private bool currentlyTakingDOT;
+
         private void Start()
         {
             hudManager.UpdateHealth(health);
@@ -94,11 +96,20 @@ namespace PlayerObject
 
         public IEnumerator DamageOverTime(int ticks, float delay, int damage)
         {
+            if (currentlyTakingDOT)
+            {
+                yield break;
+            }
+
+            currentlyTakingDOT = true;
+
             for (int i = 0; i < ticks; i++)
             {
                 TakeDamage(damage);
                 yield return new WaitForSeconds(delay);
             }
+
+            currentlyTakingDOT = false;
         }
 
         private void OnTriggerEnter(Collider other)

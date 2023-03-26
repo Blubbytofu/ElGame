@@ -440,6 +440,7 @@ MonoBehaviour:
   bulletSpread: 1
   sightRange: 64
   attackRange: 18
+  aggressiveApproach: 1
 --- !u!54 &3284945220085082975
 Rigidbody:
   m_ObjectHideFlags: 0

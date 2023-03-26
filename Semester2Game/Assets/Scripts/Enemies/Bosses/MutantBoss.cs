@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using ExtensionMethods;
+using UnityEngine.UI;
+using TMPro;
 
 public class MutantBoss : MonoBehaviour, IDamageable
 {
+    public Slider bar;
+    public TextMeshProUGUI healthNumber;
+
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private DropLoot dropLoot;
     [SerializeField] private GameObject player;
@@ -15,11 +20,14 @@ public class MutantBoss : MonoBehaviour, IDamageable
     [SerializeField] private Transform attackPoint;
     [SerializeField] private Collider[] childHitBoxes;
 
-    [SerializeField] private float health;
+    private int health;
+    [SerializeField] private int maxHealth;
+
+    [SerializeField] private float firstSpawnDelay;
 
     private Vector3 walkPoint;
     private bool walkPointSet;
-    [SerializeField] private float walkPointRange;
+    [SerializeField] private float walkPointStrafeRange, walkPointForwardRange;
 
     [SerializeField] private float doorRange;
     [SerializeField] private float atPointRange;
@@ -29,14 +37,22 @@ public class MutantBoss : MonoBehaviour, IDamageable
     [SerializeField] private float projectileVel;
     [SerializeField] private int bulletsPerShot = 1;
     [SerializeField] private float bulletSpread;
+    [SerializeField] private float shotgunDelay;
 
     [SerializeField] private float sightRange, attackRange;
     private bool playerInSightRange, playerInAttackRange;
 
     private bool isDead;
 
+    [SerializeField] private GameObject toxicPuddle;
+    [SerializeField] private float puddleDelay;
+    [SerializeField] private float puddleLifetime;
+
     private void Awake()
     {
+        health = maxHealth;
+        bar.maxValue = maxHealth;
+
         if (spawnEffect != null)
         {
             Instantiate(spawnEffect, transform.position, Quaternion.identity);
@@ -45,6 +61,22 @@ public class MutantBoss : MonoBehaviour, IDamageable
         player = GameObject.Find("Player");
         //gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         //CheckDoor();
+
+        StartCoroutine(SpawnPuddle());
+
+        alreadyAttacked = true;
+        StartCoroutine(ResetAttack(firstSpawnDelay));
+    }
+
+    private IEnumerator SpawnPuddle()
+    {
+        while (!isDead)
+        {
+            yield return new WaitForSeconds(puddleDelay);
+
+            GameObject puddle = Instantiate(toxicPuddle, transform.position - new Vector3(0, 1), Quaternion.identity);
+            Destroy(puddle, puddleLifetime);
+        }
     }
 
     private IEnumerator CheckDoor()
@@ -70,6 +102,9 @@ public class MutantBoss : MonoBehaviour, IDamageable
 
     private void Update()
     {
+        bar.value = health;
+        healthNumber.text = health + " / " + maxHealth;
+
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerMask);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerMask);
 
@@ -94,23 +129,8 @@ public class MutantBoss : MonoBehaviour, IDamageable
         if (!alreadyAttacked)
         {
             alreadyAttacked = true;
-            int randAttack = Random.Range(0, 3);
-
-            if (randAttack == 0)
-            {
-                ShotgunAttack();
-                StartCoroutine(ResetAttack(1.5f));
-            }
-            else if (randAttack == 1)
-            {
-                ShotgunAttack();
-                StartCoroutine(ResetAttack(1.5f));
-            }
-            else if (randAttack == 2)
-            {
-                ShotgunAttack();
-                StartCoroutine(ResetAttack(1.5f));
-            }
+            ShotgunAttack();
+            StartCoroutine(ResetAttack(shotgunDelay));
         }
     }
 
@@ -138,8 +158,8 @@ public class MutantBoss : MonoBehaviour, IDamageable
     }
     private void SearchWalkPoint()
     {
-        Vector3 xPos = Vector3.Cross(player.transform.position.ReplaceField(newY: transform.position.y) - transform.position, Vector3.up).normalized * Random.Range(-walkPointRange, walkPointRange);
-        Vector3 zPos = (player.transform.position.ReplaceField(newY: transform.position.y) - transform.position).normalized * Random.Range(0, walkPointRange);
+        Vector3 xPos = Vector3.Cross(player.transform.position.ReplaceField(newY: transform.position.y) - transform.position, Vector3.up).normalized * Random.Range(-walkPointStrafeRange, walkPointStrafeRange);
+        Vector3 zPos = (player.transform.position.ReplaceField(newY: transform.position.y) - transform.position).normalized * Random.Range(walkPointForwardRange - 1, walkPointForwardRange);
         walkPoint = transform.position + xPos + zPos;
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, groundMask))

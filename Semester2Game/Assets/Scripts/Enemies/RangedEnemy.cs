@@ -15,7 +15,7 @@ public class RangedEnemy : MonoBehaviour, IDamageable
     [SerializeField] private Transform attackPoint;
     [SerializeField] private Collider[] childHitBoxes;
 
-    [SerializeField] private float health;
+    [SerializeField] private int health;
 
     private Vector3 walkPoint;
     private bool walkPointSet;
