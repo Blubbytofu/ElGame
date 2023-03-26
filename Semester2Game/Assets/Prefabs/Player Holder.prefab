@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 407584}
   - component: {fileID: 407586}
   - component: {fileID: 407585}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,6 +165,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3652984889712142034}
   - {fileID: 1390279961}
   m_Father: {fileID: 8261380306678737100}
   m_RootOrder: -1
@@ -185,7 +186,7 @@ GameObject:
   - component: {fileID: 85544503}
   - component: {fileID: 85544505}
   - component: {fileID: 85544504}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Game Stats
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +321,7 @@ GameObject:
   - component: {fileID: 153429567}
   - component: {fileID: 153429569}
   - component: {fileID: 153429568}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +397,7 @@ GameObject:
   - component: {fileID: 182231659}
   - component: {fileID: 182231661}
   - component: {fileID: 182231660}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: X Sens Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -421,7 +422,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -120, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &182231661
 CanvasRenderer:
@@ -533,7 +534,7 @@ GameObject:
   - component: {fileID: 226013107}
   - component: {fileID: 226013109}
   - component: {fileID: 226013108}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,7 +610,7 @@ GameObject:
   - component: {fileID: 318836712}
   - component: {fileID: 318836714}
   - component: {fileID: 318836713}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -685,7 +686,7 @@ GameObject:
   - component: {fileID: 336316751}
   - component: {fileID: 336316753}
   - component: {fileID: 336316752}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -761,7 +762,7 @@ GameObject:
   - component: {fileID: 355687776}
   - component: {fileID: 355687778}
   - component: {fileID: 355687777}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -897,7 +898,7 @@ GameObject:
   - component: {fileID: 374152123}
   - component: {fileID: 374152122}
   - component: {fileID: 374152121}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Leave Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1012,18 +1013,6 @@ MonoBehaviour:
         m_MethodName: DeactivateObject
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1046706932}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: DeactivateObject
-        m_Mode: 2
-        m_Arguments:
           m_ObjectArgument: {fileID: 422589684}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
@@ -1052,7 +1041,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 408479653}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Weapon FOV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1091,7 +1080,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 412218737}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1130,7 +1119,7 @@ GameObject:
   - component: {fileID: 416547347}
   - component: {fileID: 416547349}
   - component: {fileID: 416547348}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1205,7 +1194,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 422589685}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Game Won Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1249,7 +1238,7 @@ GameObject:
   - component: {fileID: 452002180}
   - component: {fileID: 452002179}
   - component: {fileID: 452002178}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Leave Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1373,18 +1362,6 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: DeactivateObject
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 422589684}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
         m_MethodName: LoadNewLevel
         m_Mode: 5
         m_Arguments:
@@ -1407,7 +1384,7 @@ GameObject:
   - component: {fileID: 523568591}
   - component: {fileID: 523568590}
   - component: {fileID: 523568589}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Restart Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1519,8 +1496,20 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadNewLevel
-        m_Mode: 5
+        m_MethodName: DeactivateObject
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1385870146}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: ReloadLevel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1540,7 +1529,7 @@ GameObject:
   - component: {fileID: 524103827}
   - component: {fileID: 524103829}
   - component: {fileID: 524103828}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1675,7 +1664,7 @@ GameObject:
   - component: {fileID: 535301269}
   - component: {fileID: 535301271}
   - component: {fileID: 535301270}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1755,7 +1744,7 @@ GameObject:
   - component: {fileID: 546125201}
   - component: {fileID: 546125203}
   - component: {fileID: 546125202}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1830,7 +1819,7 @@ GameObject:
   m_Component:
   - component: {fileID: 555665648}
   - component: {fileID: 555665649}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: FOV Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1934,7 +1923,7 @@ GameObject:
   - component: {fileID: 613165238}
   - component: {fileID: 613165240}
   - component: {fileID: 613165239}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2008,7 +1997,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 740600521}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2047,7 +2036,7 @@ GameObject:
   - component: {fileID: 743323013}
   - component: {fileID: 743323015}
   - component: {fileID: 743323014}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Checkmark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2123,7 +2112,7 @@ GameObject:
   - component: {fileID: 759863207}
   - component: {fileID: 759863209}
   - component: {fileID: 759863208}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2257,7 +2246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 762815495}
   - component: {fileID: 762815496}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Y Sens Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2360,7 +2349,7 @@ GameObject:
   m_Component:
   - component: {fileID: 846326563}
   - component: {fileID: 846326564}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: X Sens Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2462,7 +2451,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 900969482}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2501,7 +2490,7 @@ GameObject:
   - component: {fileID: 984366016}
   - component: {fileID: 984366018}
   - component: {fileID: 984366017}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2577,7 +2566,7 @@ GameObject:
   - component: {fileID: 987352958}
   - component: {fileID: 987352960}
   - component: {fileID: 987352959}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Checkmark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2653,7 +2642,7 @@ GameObject:
   - component: {fileID: 994017351}
   - component: {fileID: 994017353}
   - component: {fileID: 994017352}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2729,7 +2718,7 @@ GameObject:
   - component: {fileID: 1008054105}
   - component: {fileID: 1008054107}
   - component: {fileID: 1008054106}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2804,7 +2793,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1046706933}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Game Over Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2844,7 +2833,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1081152759}
   - component: {fileID: 1081152760}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Target FPS Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2927,7 +2916,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2107729607}
         m_TargetAssemblyTypeName: PrefsManager, Assembly-CSharp
-        m_MethodName: YSensSlider
+        m_MethodName: TargetFPSSLider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2948,7 +2937,7 @@ GameObject:
   - component: {fileID: 1096113430}
   - component: {fileID: 1096113432}
   - component: {fileID: 1096113431}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3083,7 +3072,7 @@ GameObject:
   - component: {fileID: 1121883704}
   - component: {fileID: 1121883706}
   - component: {fileID: 1121883705}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: FOV Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3108,7 +3097,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -120, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1121883706
 CanvasRenderer:
@@ -3219,7 +3208,7 @@ GameObject:
   - component: {fileID: 1133813086}
   - component: {fileID: 1133813085}
   - component: {fileID: 1133813084}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Save Settings Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3352,7 +3341,7 @@ GameObject:
   - component: {fileID: 1154416057}
   - component: {fileID: 1154416059}
   - component: {fileID: 1154416058}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3428,7 +3417,7 @@ GameObject:
   - component: {fileID: 1160746402}
   - component: {fileID: 1160746404}
   - component: {fileID: 1160746403}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3453,7 +3442,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 25}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1160746404
 CanvasRenderer:
@@ -3561,7 +3550,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1169514728}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: X Sensitivity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3600,7 +3589,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1183485080}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3640,7 +3629,7 @@ GameObject:
   - component: {fileID: 1205464988}
   - component: {fileID: 1205464987}
   - component: {fileID: 1205464986}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Restart Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3755,18 +3744,6 @@ MonoBehaviour:
         m_MethodName: DeactivateObject
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1046706932}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: DeactivateObject
-        m_Mode: 2
-        m_Arguments:
           m_ObjectArgument: {fileID: 422589684}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
@@ -3776,14 +3753,14 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadNewLevel
-        m_Mode: 5
+        m_MethodName: ReloadLevel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level 1
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1256048388
@@ -3795,7 +3772,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1256048389}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: FOV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3836,7 +3813,7 @@ GameObject:
   - component: {fileID: 1360859833}
   - component: {fileID: 1360859835}
   - component: {fileID: 1360859834}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Game Win Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3971,7 +3948,7 @@ GameObject:
   - component: {fileID: 1367388436}
   - component: {fileID: 1367388438}
   - component: {fileID: 1367388437}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4045,7 +4022,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1385870147}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Settings Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4066,8 +4043,8 @@ RectTransform:
   m_Children:
   - {fileID: 1133813083}
   - {fileID: 1619568302}
-  - {fileID: 1169514728}
   - {fileID: 1627333571}
+  - {fileID: 1169514728}
   - {fileID: 1670016324}
   - {fileID: 1256048389}
   - {fileID: 408479653}
@@ -4120,7 +4097,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: 1000, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1390279964
@@ -4223,7 +4200,7 @@ GameObject:
   - component: {fileID: 1417020514}
   - component: {fileID: 1417020516}
   - component: {fileID: 1417020515}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4374,7 +4351,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1470843404}
   - component: {fileID: 1470843405}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Shift To Walk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4474,7 +4451,7 @@ GameObject:
   - component: {fileID: 1540701992}
   - component: {fileID: 1540701994}
   - component: {fileID: 1540701993}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Y Sens Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4499,7 +4476,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -120, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1540701994
 CanvasRenderer:
@@ -4611,7 +4588,7 @@ GameObject:
   - component: {fileID: 1550513041}
   - component: {fileID: 1550513043}
   - component: {fileID: 1550513042}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4746,7 +4723,7 @@ GameObject:
   - component: {fileID: 1609264021}
   - component: {fileID: 1609264023}
   - component: {fileID: 1609264022}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4822,7 +4799,7 @@ GameObject:
   - component: {fileID: 1614213089}
   - component: {fileID: 1614213091}
   - component: {fileID: 1614213090}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4901,7 +4878,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1619568302}
   - component: {fileID: 1619568303}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Full Screen Toggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4976,7 +4953,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2107729607}
+        m_TargetAssemblyTypeName: PrefsManager, Assembly-CSharp
+        m_MethodName: ToggleFullScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &1621554032
 GameObject:
@@ -4990,7 +4979,7 @@ GameObject:
   - component: {fileID: 1621554036}
   - component: {fileID: 1621554035}
   - component: {fileID: 1621554034}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Restart Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5114,20 +5103,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: DeactivateObject
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 422589684}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadNewLevel
-        m_Mode: 5
+        m_MethodName: ReloadLevel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5145,7 +5122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1627333571}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Target FPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5187,7 +5164,7 @@ GameObject:
   - component: {fileID: 1636359163}
   - component: {fileID: 1636359162}
   - component: {fileID: 1636359161}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Quit To Main Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5299,6 +5276,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: DeactivateObject
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1385870146}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
         m_MethodName: LoadNewLevel
         m_Mode: 5
         m_Arguments:
@@ -5318,7 +5307,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1647271927}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5355,7 +5344,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1670016324}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Y Sensitivity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5396,7 +5385,7 @@ GameObject:
   - component: {fileID: 1691112197}
   - component: {fileID: 1691112199}
   - component: {fileID: 1691112198}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5421,7 +5410,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 25}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1691112199
 CanvasRenderer:
@@ -5531,7 +5520,7 @@ GameObject:
   - component: {fileID: 1703005194}
   - component: {fileID: 1703005196}
   - component: {fileID: 1703005195}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5607,7 +5596,7 @@ GameObject:
   - component: {fileID: 1706728230}
   - component: {fileID: 1706728232}
   - component: {fileID: 1706728231}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5632,7 +5621,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 25}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1706728232
 CanvasRenderer:
@@ -5742,7 +5731,7 @@ GameObject:
   - component: {fileID: 1714277463}
   - component: {fileID: 1714277465}
   - component: {fileID: 1714277464}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5767,7 +5756,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 25}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1714277465
 CanvasRenderer:
@@ -5878,7 +5867,7 @@ GameObject:
   - component: {fileID: 1719777620}
   - component: {fileID: 1719777619}
   - component: {fileID: 1719777618}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Next Level Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6023,7 +6012,7 @@ GameObject:
   - component: {fileID: 1773477864}
   - component: {fileID: 1773477866}
   - component: {fileID: 1773477865}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6156,7 +6145,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1787215928}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6195,7 +6184,7 @@ GameObject:
   - component: {fileID: 1817288024}
   - component: {fileID: 1817288026}
   - component: {fileID: 1817288025}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6330,7 +6319,7 @@ GameObject:
   - component: {fileID: 1827746724}
   - component: {fileID: 1827746726}
   - component: {fileID: 1827746725}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: WFOV Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6355,7 +6344,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -120, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1827746726
 CanvasRenderer:
@@ -6464,7 +6453,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1842853559}
   - component: {fileID: 1842853560}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: WFOV Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6566,7 +6555,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1863192959}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6603,7 +6592,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1899864992}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6642,7 +6631,7 @@ GameObject:
   - component: {fileID: 1902821984}
   - component: {fileID: 1902821986}
   - component: {fileID: 1902821985}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6718,7 +6707,7 @@ GameObject:
   - component: {fileID: 1944130174}
   - component: {fileID: 1944130176}
   - component: {fileID: 1944130175}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Target FPS Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6743,7 +6732,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -120, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1944130176
 CanvasRenderer:
@@ -6855,7 +6844,7 @@ GameObject:
   - component: {fileID: 1962832755}
   - component: {fileID: 1962832757}
   - component: {fileID: 1962832756}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6929,7 +6918,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1980254736}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6968,7 +6957,7 @@ GameObject:
   - component: {fileID: 1986448791}
   - component: {fileID: 1986448793}
   - component: {fileID: 1986448792}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Game Over Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7103,7 +7092,7 @@ GameObject:
   - component: {fileID: 1991434973}
   - component: {fileID: 1991434975}
   - component: {fileID: 1991434974}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7128,7 +7117,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 25}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1991434975
 CanvasRenderer:
@@ -7238,7 +7227,7 @@ GameObject:
   - component: {fileID: 2028849149}
   - component: {fileID: 2028849151}
   - component: {fileID: 2028849150}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7374,7 +7363,7 @@ GameObject:
   - component: {fileID: 2104689222}
   - component: {fileID: 2104689221}
   - component: {fileID: 2104689220}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Resume Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7505,7 +7494,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2141619518}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8283,7 +8272,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 112108558214708730}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Game HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15255,7 +15244,7 @@ GameObject:
   - component: {fileID: 8080367756925670023}
   - component: {fileID: 8352634072495248483}
   - component: {fileID: 2661856103731652918}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Settings Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15449,6 +15438,141 @@ Transform:
   m_Father: {fileID: 3145252988109087319}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5306221575921436731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3652984889712142034}
+  - component: {fileID: 8303264027370147503}
+  - component: {fileID: 5309401493464098966}
+  m_Layer: 5
+  m_Name: Loading Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3652984889712142034
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5306221575921436731}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 26640758}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 25}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8303264027370147503
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5306221575921436731}
+  m_CullTransparentMesh: 1
+--- !u!114 &5309401493464098966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5306221575921436731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Loading
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &5308004117229606715
 GameObject:
   m_ObjectHideFlags: 0
@@ -15699,7 +15823,7 @@ MonoBehaviour:
   playerInventory: {fileID: 8261380307373194707}
   prefsManager: {fileID: 2107729607}
   weaponManager: {fileID: 8261380305664115890}
-  owned: 1
+  owned: 0
   <weaponName>k__BackingField: Glock-17
   weaponIndex: 1
   damage: 8
@@ -15860,7 +15984,7 @@ MonoBehaviour:
   playerInventory: {fileID: 8261380307373194707}
   prefsManager: {fileID: 2107729607}
   weaponManager: {fileID: 8261380305664115890}
-  owned: 1
+  owned: 0
   <weaponName>k__BackingField: Spas-12
   weaponIndex: 3
   damage: 9
@@ -16901,7 +17025,7 @@ GameObject:
   - component: {fileID: 2062473381282529077}
   - component: {fileID: 5183757504354878358}
   - component: {fileID: 3434717713835221447}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Level Introduction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17748,7 +17872,7 @@ MonoBehaviour:
   playerInventory: {fileID: 8261380307373194707}
   prefsManager: {fileID: 2107729607}
   weaponManager: {fileID: 8261380305664115890}
-  owned: 1
+  owned: 0
   <weaponName>k__BackingField: MAC-10
   weaponIndex: 2
   damage: 4
@@ -20644,7 +20768,7 @@ MonoBehaviour:
   - {fileID: 5456723734399024111}
   - {fileID: 6407684428267804742}
   - {fileID: 5562725718642545478}
-  weaponCurrentAmmo: 01000000880000006801000024000000
+  weaponCurrentAmmo: 01000000000000006801000024000000
   weaponMaxAmmo: 01000000880000006801000024000000
   playerMovement: {fileID: 8261380307373194706}
   centerHorizontalPosition: 0
@@ -20664,7 +20788,7 @@ GameObject:
   - component: {fileID: 8261380305799050756}
   - component: {fileID: 8261380305799050758}
   - component: {fileID: 8261380305799050757}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Oxygen Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20832,7 +20956,7 @@ GameObject:
   - component: {fileID: 8261380305855514460}
   - component: {fileID: 8261380305855514462}
   - component: {fileID: 8261380305855514461}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Armor Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20970,7 +21094,7 @@ GameObject:
   - component: {fileID: 8261380306018629599}
   - component: {fileID: 8261380306018629569}
   - component: {fileID: 8261380306018629568}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Health Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21105,7 +21229,7 @@ GameObject:
   - component: {fileID: 8261380306025479428}
   - component: {fileID: 8261380306025479430}
   - component: {fileID: 8261380306025479429}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Alt Fire Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30984,7 +31108,7 @@ GameObject:
   - component: {fileID: 8261380306301470135}
   - component: {fileID: 8261380306301470137}
   - component: {fileID: 8261380306301470136}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Ammo Status
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31121,7 +31245,7 @@ GameObject:
   - component: {fileID: 8261380306455130821}
   - component: {fileID: 8261380306455130823}
   - component: {fileID: 8261380306455130822}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Armor Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36130,7 +36254,7 @@ GameObject:
   - component: {fileID: 8261380306676469936}
   - component: {fileID: 8261380306676469938}
   - component: {fileID: 8261380306676469937}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36209,7 +36333,7 @@ GameObject:
   - component: {fileID: 8261380306678737101}
   - component: {fileID: 8261380306678737136}
   - component: {fileID: 2107729607}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Player Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36333,7 +36457,7 @@ MonoBehaviour:
   oxygenText: {fileID: 8261380305799050757}
   oxygenIndicator: {fileID: 8261380307265084604}
   altIndicator: {fileID: 8261380306025479427}
-  gameCompletionStatsText: {fileID: 0}
+  gameCompletionStatsText: {fileID: 85544504}
   levelIntroTime: 2
 --- !u!114 &2107729607
 MonoBehaviour:
@@ -46425,7 +46549,7 @@ GameObject:
   - component: {fileID: 8261380307128363797}
   - component: {fileID: 8261380307128363799}
   - component: {fileID: 8261380307128363798}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Weapon Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46564,7 +46688,7 @@ GameObject:
   - component: {fileID: 8261380307140304243}
   - component: {fileID: 8261380307140304245}
   - component: {fileID: 8261380307140304244}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Health Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46721,7 +46845,7 @@ Transform:
   - {fileID: 8261380307373194671}
   - {fileID: 8261380307274702180}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8261380307265084604
 GameObject:
@@ -46734,7 +46858,7 @@ GameObject:
   - component: {fileID: 8261380307265084605}
   - component: {fileID: 8261380307265084607}
   - component: {fileID: 8261380307265084606}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Oxygen Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46983,7 +47107,7 @@ GameObject:
   - component: {fileID: 8261380307310933643}
   - component: {fileID: 8261380307310933645}
   - component: {fileID: 8261380307310933644}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: FPS Counter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47248,18 +47372,17 @@ MonoBehaviour:
   prefsManager: {fileID: 2107729607}
   environmentMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 576
   walkingVelMultiplier: 0.6
   shiftToWalk: 1
-  maxGroundedVel: 10
-  groundDrag: 7
-  groundSnapTolerance: 0.2
+  maxGroundedVel: 12
+  groundDrag: 9
+  groundSnapTolerance: 0.5
   maxGroundAngle: 45
   groundSnapVel: 7
   groundSnapCooldown: 0.05
-  maxAccelerationTime: 0
+  maxAccelerationTime: 0.15
   gravityMagnitude: 20
-  maxAirVel: 10
   airSpeed: 1
   airDrag: 1
   backwardAirSpeed: 1
@@ -47280,9 +47403,9 @@ MonoBehaviour:
   ladderDrag: 8
   ladderLeaveForce: 20
   ladderJumpForce: 400
-  ladderFirstMoveDelay: 0.1
-  maxNoClipVel: 0
-  noClipDrag: 0
+  ladderFirstMoveDelay: 0
+  maxNoClipVel: 15
+  noClipDrag: 10
 --- !u!114 &8261380307373194707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47295,6 +47418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c363fa08ff58743b20f3c04736d0f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orientationTransform: {fileID: 0}
   hudManager: {fileID: 8261380306678737136}
   playerCamera: {fileID: 8261380307274702181}
   weaponManager: {fileID: 8261380305664115890}
@@ -47304,7 +47428,7 @@ MonoBehaviour:
   <maxHealth>k__BackingField: 100
   <health>k__BackingField: 100
   <maxArmor>k__BackingField: 100
-  <armor>k__BackingField: 50
+  <armor>k__BackingField: 0
   <maxOxygen>k__BackingField: 100
   <oxygen>k__BackingField: 100
   oxygenDetectIntervals: 0.1
@@ -47312,6 +47436,8 @@ MonoBehaviour:
   oxygenDecreaseAmount: 1
   oxygenIncreaseAmount: 5
   suffocationDamage: 1
+  <hasBlueKey>k__BackingField: 0
+  <hasRedKey>k__BackingField: 0
 --- !u!1 &8261380307557209420
 GameObject:
   m_ObjectHideFlags: 0
@@ -48691,7 +48817,7 @@ MonoBehaviour:
   playerInventory: {fileID: 8261380307373194707}
   prefsManager: {fileID: 2107729607}
   weaponManager: {fileID: 8261380305664115890}
-  owned: 1
+  owned: 0
   <weaponName>k__BackingField: AK-47
   weaponIndex: 4
   damage: 20

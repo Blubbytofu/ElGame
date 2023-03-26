@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PlayerObject;
 
 public class Door : MonoBehaviour, IInteractable
 {
@@ -23,11 +24,11 @@ public class Door : MonoBehaviour, IInteractable
     private float startOpenTime;
     [SerializeField] private float totalOpenTime;
 
-    //public bool redLocked;
-    //public bool blueLocked;
+    public bool redLocked;
+    public bool blueLocked;
 
-    //public GameObject redLock;
-    //public GameObject blueLock;
+    public GameObject redLock;
+    public GameObject blueLock;
 
 
     private void Start()
@@ -43,25 +44,29 @@ public class Door : MonoBehaviour, IInteractable
             openPosition = transform.position + positionOffset;
         }
 
-        /*
-        if (blueLocked)
+        if (blueLock != null)
         {
-            blueLock.SetActive(true);
-        }
-        else
-        {
-            blueLock.SetActive(false);
+            if (blueLocked)
+            {
+                blueLock.SetActive(true);
+            }
+            else
+            {
+                blueLock.SetActive(false);
+            }
         }
 
-        if (redLocked)
+        if (redLock != null)
         {
-            redLock.SetActive(true);
+            if (redLocked)
+            {
+                redLock.SetActive(true);
+            }
+            else
+            {
+                redLock.SetActive(false);
+            }
         }
-        else
-        {
-            redLock.SetActive(false);
-        }
-        */
     }
 
     private void Update()
@@ -108,7 +113,7 @@ public class Door : MonoBehaviour, IInteractable
             return;
         }
 
-        if (!broken && readyToMove)// && !redLocked && !blueLocked)
+        if (!broken && readyToMove && !redLocked && !blueLocked)
         {
             if ((openStatus && !obstruction) || !openStatus)
             {
@@ -121,14 +126,16 @@ public class Door : MonoBehaviour, IInteractable
             return;
         }
 
-        /*
-        PlayerInventory playerInventory = GameObject.Find("Body").GetComponent<PlayerInventory>();
+        PlayerInventory playerInventory = source.transform.parent.GetComponentInChildren<PlayerInventory>();
+        if (playerInventory == null || (redLock == null && blueLock == null))
+        {
+            return;
+        }
 
         if (redLocked)
         {
             if (playerInventory.hasRedKey)
             {
-                //playerInventory.hasRedKey = false;
                 redLocked = false;
                 redLock.SetActive(false);
             }
@@ -138,12 +145,10 @@ public class Door : MonoBehaviour, IInteractable
         {
             if (playerInventory.hasBlueKey)
             {
-                //playerInventory.hasBlueKey = false;
                 blueLocked = false;
                 blueLock.SetActive(false);
             }
         }
-        */
     }
 
     private void OnDrawGizmosSelected()

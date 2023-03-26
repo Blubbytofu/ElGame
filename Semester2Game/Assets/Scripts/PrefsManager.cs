@@ -90,7 +90,7 @@ public class PrefsManager : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             settingsOpen = !settingsOpen;
             if (settingsOpen)

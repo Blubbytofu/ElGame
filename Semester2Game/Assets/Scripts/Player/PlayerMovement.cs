@@ -38,7 +38,7 @@ namespace PlayerObject
 
         [Header("In The Air-----------------------------------------------------------------------------")]
         [SerializeField] private float gravityMagnitude;
-        [SerializeField] private float maxAirVel;
+        private float maxAirVel;
         [SerializeField] private float airSpeed;
         [SerializeField] private float airDrag;
         [SerializeField] private float backwardAirSpeed;
@@ -472,7 +472,8 @@ namespace PlayerObject
             playerRb.drag = airDrag;
 
             float sideSpeed = Mathf.Sqrt(playerRb.velocity.x * playerRb.velocity.x + playerRb.velocity.z * playerRb.velocity.z);
-            float maxVel = walkingInput ? maxAirVel * walkingVelMultiplier : (crouchInput ? maxAirVel * crouchSpeedMultiplier : maxAirVel);
+            float maxVel = maxAirVel;
+            //float maxVel = walkingInput ? maxAirVel * walkingVelMultiplier : (crouchInput ? maxAirVel * crouchSpeedMultiplier : maxAirVel);
 
             Vector3 moveD = vInput * orientationTransform.forward + hInput * orientationTransform.right;
             moveD.Normalize();
@@ -595,6 +596,8 @@ namespace PlayerObject
             {
                 playerRb.velocity += (maxVel - playerRb.velocity.magnitude) * moveD;
             }
+
+            maxAirVel = playerRb.velocity.magnitude;
         }
 
         private void Jumping()

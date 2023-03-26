@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using ExtensionMethods;
 
 public class RangedEnemy : MonoBehaviour, IDamageable
 {
@@ -27,12 +28,15 @@ public class RangedEnemy : MonoBehaviour, IDamageable
     private bool alreadyAttacked;
     [SerializeField] private GameObject projectile;
     [SerializeField] private float projectileVel;
+    [SerializeField] private int bulletsPerShot = 1;
     [SerializeField] private float bulletSpread;
 
     [SerializeField] private float sightRange, attackRange;
     private bool playerInSightRange, playerInAttackRange;
 
     private bool isDead;
+
+    [SerializeField] private bool aggressiveApproach;
 
     private void Awake()
     {
@@ -111,10 +115,20 @@ public class RangedEnemy : MonoBehaviour, IDamageable
     }
     private void SearchWalkPoint()
     {
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
+        if (aggressiveApproach)
+        {
+            Vector3 xPos = Vector3.Cross(player.transform.position.ReplaceField(newY: transform.position.y) - transform.position, Vector3.up).normalized * Random.Range(-walkPointRange, walkPointRange);
+            Vector3 zPos = (player.transform.position.ReplaceField(newY: transform.position.y) - transform.position).normalized * Random.Range(0, walkPointRange);
+            walkPoint = transform.position + xPos + zPos;
+        }
+        else
+        {
+            float randomZ = Random.Range(-walkPointRange, walkPointRange);
+            float randomX = Random.Range(-walkPointRange, walkPointRange);
 
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+            walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+        }
+
         if (Physics.Raycast(walkPoint, -transform.up, 2f, groundMask))
         {
             walkPointSet = true;
@@ -128,17 +142,33 @@ public class RangedEnemy : MonoBehaviour, IDamageable
 
     private void Attack()
     {
-        Vector3 target = player.transform.position + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, bulletSpread));
-
         if (!alreadyAttacked)
         {
-            Rigidbody rb = Instantiate(projectile, attackPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-            foreach (Collider collider in childHitBoxes)
-            {
-                Physics.IgnoreCollision(rb.gameObject.GetComponent<Collider>(), collider, true);
-            }
+            List<Collider> shotBullets = new List<Collider>();
 
-            rb.AddForce((target - attackPoint.position).normalized * projectileVel, ForceMode.Impulse);
+            for (int i = 0; i < bulletsPerShot; i++)
+            {
+                Vector3 target = player.transform.position + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, bulletSpread));
+
+                Rigidbody rb = Instantiate(projectile, attackPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
+
+                if (bulletsPerShot > 1)
+                {
+                    shotBullets.Add(rb.GetComponent<Collider>());
+                }
+
+                foreach (Collider collider in childHitBoxes)
+                {
+                    Physics.IgnoreCollision(rb.gameObject.GetComponent<Collider>(), collider, true);
+                }
+
+                foreach (Collider collider in shotBullets)
+                {
+                    Physics.IgnoreCollision(rb.gameObject.GetComponent<Collider>(), collider, true);
+                }
+
+                rb.AddForce((target - attackPoint.position).normalized * projectileVel, ForceMode.Impulse);
+            }
 
             alreadyAttacked = true;
             StartCoroutine(ResetAttack());

@@ -6,6 +6,8 @@ namespace PlayerObject
 {
     public class PlayerInventory : MonoBehaviour, IDataPersistence
     {
+        [SerializeField] private Transform orientationTransform;
+
         [SerializeField] private HUDManager hudManager;
         [SerializeField] private PlayerCamera playerCamera;
         [SerializeField] private WeaponManager weaponManager;
@@ -30,6 +32,9 @@ namespace PlayerObject
 
         public bool isDead { get; private set; }
         public bool wonLevel { get; private set; }
+
+        [field: SerializeField] public bool hasBlueKey { get; private set; }
+        [field: SerializeField] public bool hasRedKey { get; private set; }
 
         private void Start()
         {
@@ -230,6 +235,16 @@ namespace PlayerObject
             {
                 TakeDamage(9999);
             }
+        }
+
+        public void AddRedKey()
+        {
+            hasRedKey = true;
+        }
+
+        public void AddBlueKey()
+        {
+            hasBlueKey = true;
         }
 
         //deprecated

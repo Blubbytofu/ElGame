@@ -28,5 +28,10 @@ public class EnemyProjectile : MonoBehaviour, IDamageable
         {
             Destroy(gameObject);
         }
+        else if (damageable != null)
+        {
+            damageable.ReceiveDamage(damage);
+            Destroy(gameObject);
+        }
     }
 }

@@ -62,6 +62,11 @@ namespace PlayerObject
         private void HideLevelIntro()
         {
             levelIntro.SetActive(false);
+            if (prefsManager.settingsOpen || playerInventory.isDead || playerInventory.wonLevel)
+            {
+                return;
+            }
+
             gameHUD.SetActive(true);
         }
 
