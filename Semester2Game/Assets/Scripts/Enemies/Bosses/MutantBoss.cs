@@ -35,6 +35,7 @@ public class MutantBoss : MonoBehaviour, IDamageable
     private bool alreadyAttacked;
     [SerializeField] private GameObject projectile;
     [SerializeField] private float projectileVel;
+    [SerializeField] private float upVel;
     [SerializeField] private int bulletsPerShot = 1;
     [SerializeField] private float bulletSpread;
     [SerializeField] private float shotgunDelay;
@@ -198,7 +199,8 @@ public class MutantBoss : MonoBehaviour, IDamageable
                 Physics.IgnoreCollision(rb.gameObject.GetComponent<Collider>(), collider, true);
             }
 
-            rb.AddForce((target - attackPoint.position).normalized * projectileVel, ForceMode.Impulse);
+            rb.AddForce(projectileVel * (target - attackPoint.position).normalized, ForceMode.Impulse);
+            rb.AddForce(upVel * Vector3.up, ForceMode.Impulse);
         }
     }
 

@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   broken: 0
-  cannotBeDirectlyOpenedByPlayer: 1
+  cannotBeDirectlyOpenedByPlayer: 0
   openStatus: 0
   obstruction: 0
   readyToMove: 0
@@ -371,3 +371,7 @@ MonoBehaviour:
   doorDimensions: {x: 2, y: 3, z: 0.5}
   doorDimensionsOffset: {x: 1, y: 1.5, z: -0.25}
   totalOpenTime: 0
+  redLocked: 0
+  blueLocked: 0
+  redLock: {fileID: 0}
+  blueLock: {fileID: 0}

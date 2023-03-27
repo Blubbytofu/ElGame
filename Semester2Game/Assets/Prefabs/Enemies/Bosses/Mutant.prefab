@@ -900,14 +900,15 @@ MonoBehaviour:
   - {fileID: 5583934821064718990}
   - {fileID: 5583934823019904437}
   - {fileID: 5583934822013465989}
-  maxHealth: 400
-  firstSpawnDelay: 1
+  maxHealth: 500
+  firstSpawnDelay: 1.5
   walkPointStrafeRange: 3
   walkPointForwardRange: 5
   doorRange: 0
   atPointRange: 0.1
   projectile: {fileID: 9078056652737900330, guid: 7327ccfe700126d4590478e9cd97c9b8, type: 3}
   projectileVel: 25
+  upVel: 5
   bulletsPerShot: 15
   bulletSpread: 1.5
   shotgunDelay: 2
