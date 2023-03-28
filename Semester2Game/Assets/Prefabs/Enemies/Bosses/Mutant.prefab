@@ -857,7 +857,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5583934822639481636}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -1372625422
   m_Radius: 0.5
   m_Speed: 10
   m_Acceleration: 10
@@ -911,7 +911,7 @@ MonoBehaviour:
   upVel: 5
   bulletsPerShot: 15
   bulletSpread: 1.5
-  shotgunDelay: 2
+  shotgunDelay: 1.5
   sightRange: 48
   attackRange: 32
   toxicPuddle: {fileID: 8518923028151914638, guid: 61f8de303cb329d42aa751a0d1f6514a, type: 3}
