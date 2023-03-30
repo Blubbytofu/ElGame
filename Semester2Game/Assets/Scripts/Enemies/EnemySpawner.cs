@@ -7,7 +7,17 @@ public class EnemySpawner : MonoBehaviour, IInteractable
     [SerializeField] private GameObject[] enemies;
     [SerializeField] private Vector3[] correspondingSpawnPoints;
 
+    [SerializeField] private bool hasTrigger;
+
     private bool used;
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (hasTrigger)
+        {
+            Interact(gameObject);
+        }
+    }
 
     public void Interact(GameObject source)
     {

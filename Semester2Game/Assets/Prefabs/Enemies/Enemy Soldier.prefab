@@ -765,13 +765,14 @@ MonoBehaviour:
   walkPointRange: 5
   doorRange: 0
   atPointRange: 0.2
-  attackDelay: 0.3
+  attackDelay: 0.4
   projectile: {fileID: 3722781976886384385, guid: 2f1976b7fbb00864f93a91d50756bd13, type: 3}
   projectileVel: 50
   bulletsPerShot: 1
   bulletSpread: 1
   sightRange: 128
   attackRange: 64
+  aggressiveApproach: 0
 --- !u!54 &8820600043203833710
 Rigidbody:
   m_ObjectHideFlags: 0

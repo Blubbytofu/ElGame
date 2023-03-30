@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentDamageable: {fileID: 3284945220085082944}
-  damageMultiplier: 2
+  damageMultiplier: 1.5
   facePlayer: 0
   doNotFaceHeight: 0
 --- !u!1 &3284945220085082944
@@ -429,11 +429,11 @@ MonoBehaviour:
   - {fileID: 3284945218510185194}
   - {fileID: 3284945219763381713}
   - {fileID: 3284945218891034081}
-  health: 40
+  health: 75
   walkPointRange: 5
   doorRange: 0
   atPointRange: 0.1
-  attackDelay: 2
+  attackDelay: 1.5
   projectile: {fileID: 7767104224289795504, guid: b9221ec54b8ce1d4fb87a2db377f58d4, type: 3}
   projectileVel: 36
   bulletsPerShot: 10
