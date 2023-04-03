@@ -499,7 +499,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6679592137092109332}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.066, y: 0, z: 0}
   m_LocalScale: {x: 1.4285715, y: 1.1111112, z: 1.4285715}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -761,18 +761,22 @@ MonoBehaviour:
   - {fileID: 3033052022787397919}
   - {fileID: 8943036124133760861}
   - {fileID: 8730744163583678581}
-  health: 30
+  health: 80
   walkPointRange: 5
   doorRange: 0
   atPointRange: 0.2
-  attackDelay: 0.4
+  sightRange: 128
+  attackRange: 64
+  aggressiveApproach: 0
+  isHitScan: 0
+  hitScanDamage: 0
+  attackDelay: 0.6
   projectile: {fileID: 3722781976886384385, guid: 2f1976b7fbb00864f93a91d50756bd13, type: 3}
   projectileVel: 50
   bulletsPerShot: 1
   bulletSpread: 1
-  sightRange: 128
-  attackRange: 64
-  aggressiveApproach: 0
+  canInterruptAttack: 1
+  interruptAttackTime: 0.2
 --- !u!54 &8820600043203833710
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -813,7 +817,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8820600043274337226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0781, y: 0.0629, z: 0.0272}
+  m_LocalPosition: {x: 0.0781, y: 0.0629, z: -0.1302}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

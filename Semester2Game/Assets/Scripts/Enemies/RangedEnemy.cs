@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using ExtensionMethods;
+using PlayerObject;
 
 public class RangedEnemy : MonoBehaviour, IDamageable
 {
+    [Header("References------------------------------------------------------------------------------------------")]
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private DropLoot dropLoot;
     [SerializeField] private GameObject player;
@@ -15,14 +17,25 @@ public class RangedEnemy : MonoBehaviour, IDamageable
     [SerializeField] private Transform attackPoint;
     [SerializeField] private Collider[] childHitBoxes;
 
+    [Header("Health------------------------------------------------------------------------------------------------")]
     [SerializeField] private int health;
 
+    [Header("Movement---------------------------------------------------------------------------------------------")]
+    [SerializeField] private float walkPointRange;
     private Vector3 walkPoint;
     private bool walkPointSet;
-    [SerializeField] private float walkPointRange;
 
     [SerializeField] private float doorRange;
     [SerializeField] private float atPointRange;
+
+    [SerializeField] private float sightRange, attackRange;
+    private bool playerInSightRange, playerInAttackRange;
+
+    [SerializeField] private bool aggressiveApproach;
+
+    [Header("Attack--------------------------------------------------------------------------------------------------")]
+    [SerializeField] private bool isHitScan;
+    [SerializeField] private int hitScanDamage;
 
     [SerializeField] private float attackDelay;
     private bool alreadyAttacked;
@@ -31,12 +44,11 @@ public class RangedEnemy : MonoBehaviour, IDamageable
     [SerializeField] private int bulletsPerShot = 1;
     [SerializeField] private float bulletSpread;
 
-    [SerializeField] private float sightRange, attackRange;
-    private bool playerInSightRange, playerInAttackRange;
+    [SerializeField] private bool canInterruptAttack;
+    [SerializeField] private float interruptAttackTime;
+    private bool interrupted;
 
     private bool isDead;
-
-    [SerializeField] private bool aggressiveApproach;
 
     private void Awake()
     {
@@ -142,32 +154,39 @@ public class RangedEnemy : MonoBehaviour, IDamageable
 
     private void Attack()
     {
-        if (!alreadyAttacked)
+        if (!alreadyAttacked && !interrupted)
         {
-            List<Collider> shotBullets = new List<Collider>();
-
-            for (int i = 0; i < bulletsPerShot; i++)
+            if (isHitScan)
             {
-                Vector3 target = player.transform.position + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, bulletSpread));
+                player.GetComponent<PlayerInventory>().TakeDamage(hitScanDamage);
+            }
+            else
+            {
+                List<Collider> shotBullets = new List<Collider>();
 
-                Rigidbody rb = Instantiate(projectile, attackPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-
-                if (bulletsPerShot > 1)
+                for (int i = 0; i < bulletsPerShot; i++)
                 {
-                    shotBullets.Add(rb.GetComponent<Collider>());
-                }
+                    Vector3 target = player.transform.position + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, bulletSpread));
 
-                foreach (Collider collider in childHitBoxes)
-                {
-                    Physics.IgnoreCollision(rb.gameObject.GetComponent<Collider>(), collider, true);
-                }
+                    Rigidbody rb = Instantiate(projectile, attackPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
 
-                foreach (Collider collider in shotBullets)
-                {
-                    Physics.IgnoreCollision(rb.gameObject.GetComponent<Collider>(), collider, true);
-                }
+                    if (bulletsPerShot > 1)
+                    {
+                        shotBullets.Add(rb.GetComponent<Collider>());
+                    }
 
-                rb.AddForce((target - attackPoint.position).normalized * projectileVel, ForceMode.Impulse);
+                    foreach (Collider collider in childHitBoxes)
+                    {
+                        Physics.IgnoreCollision(rb.gameObject.GetComponent<Collider>(), collider, true);
+                    }
+
+                    foreach (Collider collider in shotBullets)
+                    {
+                        Physics.IgnoreCollision(rb.gameObject.GetComponent<Collider>(), collider, true);
+                    }
+
+                    rb.AddForce((target - attackPoint.position).normalized * projectileVel, ForceMode.Impulse);
+                }
             }
 
             alreadyAttacked = true;
@@ -181,9 +200,21 @@ public class RangedEnemy : MonoBehaviour, IDamageable
         alreadyAttacked = false;
     }
 
+    private IEnumerator InterruptAttack()
+    {
+        yield return new WaitForSeconds(interruptAttackTime);
+        interrupted = false;
+    }
+
     public void ReceiveDamage(int damage)
     {
         health -= damage;
+
+        if (canInterruptAttack)
+        {
+            interrupted = true;
+            StartCoroutine(InterruptAttack());
+        }
 
         if (health <= 0 && !isDead)
         {

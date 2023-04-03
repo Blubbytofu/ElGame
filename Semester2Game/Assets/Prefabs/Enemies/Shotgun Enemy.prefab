@@ -429,10 +429,12 @@ MonoBehaviour:
   - {fileID: 3284945218510185194}
   - {fileID: 3284945219763381713}
   - {fileID: 3284945218891034081}
-  health: 75
+  health: 250
   walkPointRange: 5
   doorRange: 0
   atPointRange: 0.1
+  isHitScan: 0
+  hitScanDamage: 0
   attackDelay: 1.5
   projectile: {fileID: 7767104224289795504, guid: b9221ec54b8ce1d4fb87a2db377f58d4, type: 3}
   projectileVel: 36

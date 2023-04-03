@@ -15826,7 +15826,7 @@ MonoBehaviour:
   owned: 0
   <weaponName>k__BackingField: Glock-17
   weaponIndex: 1
-  damage: 8
+  damage: 21
   timeBetweenShooting: 0.15
   range: 75
   bulletsPerShot: 1
@@ -15987,7 +15987,7 @@ MonoBehaviour:
   owned: 0
   <weaponName>k__BackingField: Spas-12
   weaponIndex: 3
-  damage: 9
+  damage: 15
   timeBetweenShooting: 0.25
   range: 40
   bulletsPerShot: 6
@@ -15999,7 +15999,7 @@ MonoBehaviour:
   projectileYVel: 0
   initialSpread: 0
   maxSpread: 0
-  currentSpread: 0.06
+  currentSpread: 0.05
   deltaSpread: 0
   spreadDecreaseDelay: 0
   spreadDecreaseRate: 0
@@ -17738,7 +17738,7 @@ MonoBehaviour:
   owned: 1
   <weaponName>k__BackingField: MAC-10
   weaponIndex: 2
-  damage: 4
+  damage: 5
   timeBetweenShooting: 0.05
   range: 60
   bulletsPerShot: 1
@@ -17748,7 +17748,7 @@ MonoBehaviour:
   projectile: {fileID: 0}
   projectileZVel: 0
   projectileYVel: 0
-  initialSpread: 0.03
+  initialSpread: 0.02
   maxSpread: 0.06
   currentSpread: 0
   deltaSpread: 0.001
@@ -17875,7 +17875,7 @@ MonoBehaviour:
   owned: 0
   <weaponName>k__BackingField: MAC-10
   weaponIndex: 2
-  damage: 4
+  damage: 5
   timeBetweenShooting: 0.05
   range: 60
   bulletsPerShot: 1
@@ -17885,7 +17885,7 @@ MonoBehaviour:
   projectile: {fileID: 0}
   projectileZVel: 0
   projectileYVel: 0
-  initialSpread: 0.03
+  initialSpread: 0.02
   maxSpread: 0.06
   currentSpread: 0
   deltaSpread: 0.001
@@ -17937,7 +17937,7 @@ MonoBehaviour:
   playerInventory: {fileID: 8261380307373194707}
   prefsManager: {fileID: 2107729607}
   weapon: {fileID: 8261380307011553506}
-  pCamera: {fileID: 8261380307274702179}
+  pCamera: {fileID: 0}
   singleFire: 1
   zoom: 0
   zoomAmount: 0
@@ -41495,7 +41495,7 @@ MonoBehaviour:
   owned: 1
   <weaponName>k__BackingField: Crowbar
   weaponIndex: 0
-  damage: 10
+  damage: 33
   timeBetweenShooting: 0.33
   range: 2.5
   bulletsPerShot: 1
