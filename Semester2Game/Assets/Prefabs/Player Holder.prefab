@@ -17738,8 +17738,8 @@ MonoBehaviour:
   owned: 1
   <weaponName>k__BackingField: MAC-10
   weaponIndex: 2
-  damage: 5
-  timeBetweenShooting: 0.05
+  damage: 10
+  timeBetweenShooting: 0.1
   range: 60
   bulletsPerShot: 1
   bulletsSubtracted: 1
@@ -17875,8 +17875,8 @@ MonoBehaviour:
   owned: 0
   <weaponName>k__BackingField: MAC-10
   weaponIndex: 2
-  damage: 5
-  timeBetweenShooting: 0.05
+  damage: 10
+  timeBetweenShooting: 0.1
   range: 60
   bulletsPerShot: 1
   bulletsSubtracted: 1

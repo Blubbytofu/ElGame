@@ -6,7 +6,7 @@ using ExtensionMethods;
 using UnityEngine.UI;
 using TMPro;
 
-public class MutantBoss : MonoBehaviour, IDamageable
+public class RigidbodyBoss : MonoBehaviour, IDamageable
 {
     public Slider bar;
     public TextMeshProUGUI healthNumber;
@@ -19,6 +19,7 @@ public class MutantBoss : MonoBehaviour, IDamageable
     [SerializeField] private GameObject spawnEffect;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private Collider[] childHitBoxes;
+    [SerializeField] private Rigidbody bossRb;
 
     private int health;
     [SerializeField] private int maxHealth;
@@ -33,21 +34,11 @@ public class MutantBoss : MonoBehaviour, IDamageable
     [SerializeField] private float atPointRange;
 
     private bool alreadyAttacked;
-    [SerializeField] private GameObject projectile;
-    [SerializeField] private float projectileVel;
-    [SerializeField] private float upVel;
-    [SerializeField] private int bulletsPerShot = 1;
-    [SerializeField] private float bulletSpread;
-    [SerializeField] private float shotgunDelay;
 
     [SerializeField] private float sightRange, attackRange;
     private bool playerInSightRange, playerInAttackRange;
 
     private bool isDead;
-
-    [SerializeField] private GameObject toxicPuddle;
-    [SerializeField] private float puddleDelay;
-    [SerializeField] private float puddleLifetime;
 
     private void Awake()
     {
@@ -63,21 +54,8 @@ public class MutantBoss : MonoBehaviour, IDamageable
         //gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         //CheckDoor();
 
-        StartCoroutine(SpawnPuddle());
-
         alreadyAttacked = true;
         StartCoroutine(ResetAttack(firstSpawnDelay));
-    }
-
-    private IEnumerator SpawnPuddle()
-    {
-        while (!isDead)
-        {
-            yield return new WaitForSeconds(puddleDelay);
-
-            GameObject puddle = Instantiate(toxicPuddle, transform.position - new Vector3(0, 1), Quaternion.identity);
-            Destroy(puddle, puddleLifetime);
-        }
     }
 
     private IEnumerator CheckDoor()
@@ -101,25 +79,42 @@ public class MutantBoss : MonoBehaviour, IDamageable
         }
     }
 
+    private void ActivateRbMode()
+    {
+        agent.enabled = false;
+        bossRb.isKinematic = false;
+        bossRb.useGravity = true;
+    }
+
+    private void DeactivateRbMode()
+    {
+        agent.enabled = true;
+        bossRb.isKinematic = true;
+        bossRb.useGravity = false;
+    }
+
     private void Update()
     {
         bar.value = health;
         healthNumber.text = health + " / " + maxHealth;
 
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerMask);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerMask);
+        if (agent.isActiveAndEnabled)
+        {
+            playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerMask);
+            playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerMask);
 
-        if (!playerInSightRange && !playerInAttackRange)
-        {
-            Patrol();
-        }
-        else if (playerInSightRange && !playerInAttackRange)
-        {
-            Chase();
-        }
-        else if (playerInAttackRange && playerInSightRange)
-        {
-            Patrol();
+            if (!playerInSightRange && !playerInAttackRange)
+            {
+                Patrol();
+            }
+            else if (playerInSightRange && !playerInAttackRange)
+            {
+                Chase();
+            }
+            else if (playerInAttackRange && playerInSightRange)
+            {
+                Patrol();
+            }
         }
 
         RollAttack();
@@ -130,8 +125,20 @@ public class MutantBoss : MonoBehaviour, IDamageable
         if (!alreadyAttacked)
         {
             alreadyAttacked = true;
-            ShotgunAttack();
-            StartCoroutine(ResetAttack(shotgunDelay));
+
+            int randNum = Random.Range(0, 2);
+
+            if (randNum == 1)
+            {
+                ActivateRbMode();
+                Invoke(nameof(DeactivateRbMode), 1f);
+            }
+            else
+            {
+
+            }
+
+            StartCoroutine(ResetAttack(1f));
         }
     }
 
@@ -173,36 +180,6 @@ public class MutantBoss : MonoBehaviour, IDamageable
     private void Chase()
     {
         agent.SetDestination(player.transform.position);
-    }
-
-    private void ShotgunAttack()
-    {
-        List<Collider> shotBullets = new List<Collider>();
-
-        for (int i = 0; i < bulletsPerShot; i++)
-        {
-            Vector3 target = player.transform.position + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, bulletSpread));
-
-            Rigidbody rb = Instantiate(projectile, attackPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-
-            if (bulletsPerShot > 1)
-            {
-                shotBullets.Add(rb.GetComponent<Collider>());
-            }
-
-            foreach (Collider collider in childHitBoxes)
-            {
-                Physics.IgnoreCollision(rb.gameObject.GetComponent<Collider>(), collider, true);
-            }
-
-            foreach (Collider collider in shotBullets)
-            {
-                Physics.IgnoreCollision(rb.gameObject.GetComponent<Collider>(), collider, true);
-            }
-
-            rb.AddForce(projectileVel * (target - attackPoint.position).normalized, ForceMode.Impulse);
-            rb.AddForce(upVel * Vector3.up, ForceMode.Impulse);
-        }
     }
 
     private IEnumerator ResetAttack(float attackDelay)

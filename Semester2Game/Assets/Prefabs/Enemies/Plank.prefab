@@ -30,14 +30,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7448509635251418337}
-  m_LocalRotation: {x: -8.804467e-14, y: 8.8044704e-14, z: -0.7071069, w: 0.70710665}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
 --- !u!114 &7448509635251418332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,9 +374,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f287695ecae894f9b19054cb5be042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 15
+  maxHealth: 66
   health: 0
   deathSpawn: {fileID: 5785469648851954600, guid: 6d218990b0f3ec54386ff45288b60987, type: 3}
   deathSpawnAliveTime: 3
   explosionForce: 100
   torqueForce: 200
+  dropLoot: {fileID: 0}

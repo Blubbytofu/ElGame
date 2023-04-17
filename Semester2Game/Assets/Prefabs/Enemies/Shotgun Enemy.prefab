@@ -429,10 +429,13 @@ MonoBehaviour:
   - {fileID: 3284945218510185194}
   - {fileID: 3284945219763381713}
   - {fileID: 3284945218891034081}
-  health: 250
+  health: 175
   walkPointRange: 5
   doorRange: 0
   atPointRange: 0.1
+  sightRange: 64
+  attackRange: 18
+  aggressiveApproach: 1
   isHitScan: 0
   hitScanDamage: 0
   attackDelay: 1.5
@@ -440,9 +443,8 @@ MonoBehaviour:
   projectileVel: 36
   bulletsPerShot: 10
   bulletSpread: 1
-  sightRange: 64
-  attackRange: 18
-  aggressiveApproach: 1
+  canInterruptAttack: 0
+  interruptAttackTime: 0
 --- !u!54 &3284945220085082975
 Rigidbody:
   m_ObjectHideFlags: 0

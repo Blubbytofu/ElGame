@@ -281,10 +281,13 @@ MonoBehaviour:
   attackPoint: {fileID: 0}
   childHitBoxes:
   - {fileID: 6232917905199618132}
-  health: 175
+  health: 120
   walkPointRange: 10
   doorRange: 0
   atPointRange: 0.2
+  sightRange: 128
+  attackRange: 1.5
+  aggressiveApproach: 0
   isHitScan: 1
   hitScanDamage: 40
   attackDelay: 0.5
@@ -292,9 +295,8 @@ MonoBehaviour:
   projectileVel: 0
   bulletsPerShot: 1
   bulletSpread: 0
-  sightRange: 128
-  attackRange: 1.5
-  aggressiveApproach: 0
+  canInterruptAttack: 0
+  interruptAttackTime: 0
 --- !u!1 &8325125713645834513
 GameObject:
   m_ObjectHideFlags: 0
