@@ -5,6 +5,7 @@ using UnityEngine.AI;
 using ExtensionMethods;
 using UnityEngine.UI;
 using TMPro;
+using PlayerObject;
 
 public class RigidbodyBoss : MonoBehaviour, IDamageable
 {
@@ -17,7 +18,6 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
     //[SerializeField] private GameManager gameManager;
     [SerializeField] private LayerMask groundMask, playerMask;
     [SerializeField] private GameObject spawnEffect;
-    [SerializeField] private Transform attackPoint;
     [SerializeField] private Collider[] childHitBoxes;
     [SerializeField] private Rigidbody bossRb;
 
@@ -39,6 +39,26 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
     private bool playerInSightRange, playerInAttackRange;
 
     private bool isDead;
+
+    private bool rigidbodyMode;
+
+    [SerializeField] private GameObject shockwave;
+    [SerializeField] private Transform highShockwavePoint;
+    [SerializeField] private Transform lowShockwavePoint;
+    [SerializeField] private int shockwaveIterations;
+    [SerializeField] private float shockWaveFinalDelay;
+
+    [SerializeField] private GameObject projectile;
+    [SerializeField] private int projectileVel;
+    [SerializeField] private int bulletsPerShot;
+    [SerializeField] private Transform attackPoint;
+    [SerializeField] private int dashIterations;
+    [SerializeField] private float dashForce;
+    [SerializeField] private float dashTime;
+    [SerializeField] private float dashDelay;
+    [SerializeField] private float dashFinalDelay;
+
+    [SerializeField] private GameObject imploder;
 
     private void Awake()
     {
@@ -81,6 +101,8 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
 
     private void ActivateRbMode()
     {
+        agent.SetDestination(transform.position);
+        rigidbodyMode = true;
         agent.enabled = false;
         bossRb.isKinematic = false;
         bossRb.useGravity = true;
@@ -88,6 +110,7 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
 
     private void DeactivateRbMode()
     {
+        rigidbodyMode = false;
         agent.enabled = true;
         bossRb.isKinematic = true;
         bossRb.useGravity = false;
@@ -98,26 +121,14 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
         bar.value = health;
         healthNumber.text = health + " / " + maxHealth;
 
-        if (agent.isActiveAndEnabled)
+        if (!rigidbodyMode && agent.isActiveAndEnabled && agent.isOnNavMesh)
         {
-            playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerMask);
-            playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerMask);
-
-            if (!playerInSightRange && !playerInAttackRange)
-            {
-                Patrol();
-            }
-            else if (playerInSightRange && !playerInAttackRange)
-            {
-                Chase();
-            }
-            else if (playerInAttackRange && playerInSightRange)
-            {
-                Patrol();
-            }
+            agent.SetDestination(player.transform.position);
         }
 
         RollAttack();
+
+        transform.LookAt(player.transform.position.ReplaceField(newY: transform.position.y));
     }
 
     private void RollAttack()
@@ -126,19 +137,17 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
         {
             alreadyAttacked = true;
 
-            int randNum = Random.Range(0, 2);
+            int randNum = Random.Range(0, 1);
 
-            if (randNum == 1)
+            if (randNum == 0)
             {
-                ActivateRbMode();
-                Invoke(nameof(DeactivateRbMode), 1f);
+                //StartCoroutine(GroundPound());
+                StartCoroutine(Charge());
             }
             else
             {
-
+                //StartCoroutine(DashShoot());
             }
-
-            StartCoroutine(ResetAttack(1f));
         }
     }
 
@@ -182,6 +191,113 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
         agent.SetDestination(player.transform.position);
     }
 
+    private IEnumerator GroundPound()
+    {
+        ActivateRbMode();
+
+        for (int i = 0; i < shockwaveIterations; i++)
+        {
+            bossRb.AddForce(25f * transform.up, ForceMode.Impulse);
+            yield return new WaitForSeconds(0.75f);
+            bossRb.velocity = Vector3.zero;
+            bossRb.AddForce(-60f * transform.up, ForceMode.Impulse);
+            yield return new WaitForSeconds(0.4f);
+            SpawnShockwave();
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        DeactivateRbMode();
+        StartCoroutine(ResetAttack(shockWaveFinalDelay));
+    }
+
+    private void SpawnShockwave()
+    {
+        Vector3 spawnPoint;
+        if (Random.Range(0, 2) == 0)
+        {
+            spawnPoint = lowShockwavePoint.position;
+        }
+        else
+        {
+            spawnPoint = highShockwavePoint.position;
+        }
+
+        Instantiate(shockwave, spawnPoint, Quaternion.identity);
+    }
+    
+    private IEnumerator Charge()
+    {
+        ActivateRbMode();
+
+        for (int i = 0; i < 5; i++)
+        {
+            Vector3 finalPosition = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
+            yield return new WaitForSeconds(0.25f);
+            bossRb.AddForce(50 * (finalPosition - transform.position).normalized, ForceMode.Impulse);
+            yield return new WaitForSeconds(0.25f);
+            bossRb.velocity = Vector3.zero;
+            yield return new WaitForSeconds(0.25f);
+        }
+
+        DeactivateRbMode();
+        StartCoroutine(ResetAttack(0.5f));
+    }
+
+    private IEnumerator DashShoot()
+    {
+        ActivateRbMode();
+
+        for (int i = 0; i < dashIterations; i++)
+        {
+            int randNum;
+            if (Random.Range(0, 2) == 0)
+            {
+                randNum = -2;
+            }
+            else
+            {
+                randNum = 2;
+            }
+
+            bossRb.AddForce(dashForce * ((randNum * transform.right) + transform.forward).normalized, ForceMode.Impulse);
+            yield return new WaitForSeconds(dashTime);
+            bossRb.velocity = Vector3.zero;
+            yield return new WaitForSeconds(0.1f);
+            SpawnProjectile();
+            yield return new WaitForSeconds(dashDelay);
+        }
+
+        DeactivateRbMode();
+        StartCoroutine(ResetAttack(dashFinalDelay));
+    }
+
+    private void SpawnProjectile()
+    {
+        List<Collider> shotBullets = new List<Collider>();
+
+        for (int i = 0; i < bulletsPerShot; i++)
+        {
+            Rigidbody rb = Instantiate(projectile, attackPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
+
+            if (bulletsPerShot > 1)
+            {
+                shotBullets.Add(rb.GetComponent<Collider>());
+            }
+
+            foreach (Collider collider in childHitBoxes)
+            {
+                Physics.IgnoreCollision(rb.gameObject.GetComponent<Collider>(), collider, true);
+            }
+
+            foreach (Collider collider in shotBullets)
+            {
+                Physics.IgnoreCollision(rb.gameObject.GetComponent<Collider>(), collider, true);
+            }
+
+            rb.AddForce(projectileVel * (player.transform.position - attackPoint.position).normalized, ForceMode.Impulse);
+        }
+    }
+
     private IEnumerator ResetAttack(float attackDelay)
     {
         yield return new WaitForSeconds(attackDelay);
@@ -202,6 +318,18 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
             {
                 dropLoot.InstantiateLoot();
             }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        PlayerInventory playerInventory = collision.gameObject.GetComponent<PlayerInventory>();
+        if (playerInventory != null)
+        {
+            Rigidbody playerRb = playerInventory.gameObject.GetComponent<Rigidbody>();
+            playerRb.AddForce(2000 * (player.transform.position - transform.position).normalized, ForceMode.Impulse);
+            playerRb.AddForce(1000 * Vector3.up, ForceMode.Impulse);
+            playerInventory.TakeDamage(10);
         }
     }
 

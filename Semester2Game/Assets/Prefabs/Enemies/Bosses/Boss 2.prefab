@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6837208878846182886}
   - component: {fileID: 6837208878846182887}
   - component: {fileID: 6837208878846182891}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6837208878846182881}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6837208879206688828}
@@ -112,10 +112,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95763458309f1b242ae65335b2cbf4e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentDamageable: {fileID: 0}
+  parentDamageable: {fileID: 6837208879828748407}
   damageMultiplier: 1
-  facePlayer: 0
-  doNotFaceHeight: 0
+  facePlayer: 1
+  doNotFaceHeight: 1
 --- !u!1 &6837208879206688829
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,7 +125,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6837208879206688828}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Attack Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 6837208879828748407}
   m_Enabled: 1
   m_AgentTypeID: -334000983
-  m_Radius: 1.5
+  m_Radius: 1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -202,7 +202,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 6
+  m_Height: 4
   m_BaseOffset: 3
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -246,7 +246,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   spawnEffect: {fileID: 0}
-  attackPoint: {fileID: 6837208879206688828}
   childHitBoxes:
   - {fileID: 6837208878846182887}
   bossRb: {fileID: 6837208879828748411}
@@ -258,6 +257,21 @@ MonoBehaviour:
   atPointRange: 0.1
   sightRange: 64
   attackRange: 32
+  shockwave: {fileID: 0}
+  highShockwavePoint: {fileID: 0}
+  lowShockwavePoint: {fileID: 0}
+  shockwaveIterations: 0
+  shockWaveFinalDelay: 0
+  projectile: {fileID: 0}
+  projectileVel: 0
+  bulletsPerShot: 0
+  attackPoint: {fileID: 6837208879206688828}
+  dashIterations: 0
+  dashForce: 0
+  dashTime: 0
+  dashDelay: 0
+  dashFinalDelay: 0
+  imploder: {fileID: 0}
 --- !u!114 &6837208879828748405
 MonoBehaviour:
   m_ObjectHideFlags: 0
