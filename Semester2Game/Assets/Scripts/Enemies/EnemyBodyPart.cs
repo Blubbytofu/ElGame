@@ -6,7 +6,7 @@ using ExtensionMethods;
 public class EnemyBodyPart : MonoBehaviour, IDamageable
 {
     [SerializeField] private GameObject parentDamageable;
-    [SerializeField] private float damageMultiplier = 1;
+    [field: SerializeField] public float damageMultiplier { get; private set; }
 
     [SerializeField] private bool facePlayer;
     [SerializeField] private bool doNotFaceHeight;

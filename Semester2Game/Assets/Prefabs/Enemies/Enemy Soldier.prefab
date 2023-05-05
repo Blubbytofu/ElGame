@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentDamageable: {fileID: 8820600043203833711}
-  damageMultiplier: 1
+  <damageMultiplier>k__BackingField: 1
   facePlayer: 1
   doNotFaceHeight: 1
 --- !u!1 &3210962561291702462
@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentDamageable: {fileID: 8820600043203833711}
-  damageMultiplier: 1
+  <damageMultiplier>k__BackingField: 1
   facePlayer: 0
   doNotFaceHeight: 0
 --- !u!1 &5324420096221268985
@@ -471,7 +471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentDamageable: {fileID: 8820600043203833711}
-  damageMultiplier: 2
+  <damageMultiplier>k__BackingField: 1.5
   facePlayer: 0
   doNotFaceHeight: 0
 --- !u!1 &6679592137092109332
@@ -520,7 +520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentDamageable: {fileID: 8820600043203833711}
-  damageMultiplier: 0
+  <damageMultiplier>k__BackingField: 1
   facePlayer: 1
   doNotFaceHeight: 0
 --- !u!1 &6766095179204801713
@@ -688,7 +688,6 @@ GameObject:
   - component: {fileID: 8820600043203833707}
   - component: {fileID: 8820600043203833704}
   - component: {fileID: 8820600043203833705}
-  - component: {fileID: 8820600043203833710}
   m_Layer: 0
   m_Name: Enemy Soldier
   m_TagString: Untagged
@@ -777,22 +776,6 @@ MonoBehaviour:
   bulletSpread: 1
   canInterruptAttack: 1
   interruptAttackTime: 0.2
---- !u!54 &8820600043203833710
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8820600043203833711}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0.05
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 1
-  m_Constraints: 0
-  m_CollisionDetection: 2
 --- !u!1 &8820600043274337226
 GameObject:
   m_ObjectHideFlags: 0

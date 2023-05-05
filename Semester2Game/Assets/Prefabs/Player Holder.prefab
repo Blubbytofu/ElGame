@@ -1013,11 +1013,23 @@ MonoBehaviour:
         m_MethodName: DeactivateObject
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 422589684}
+          m_ObjectArgument: {fileID: 1046706932}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: DeactivateObject
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 422589684}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Main Menu
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
@@ -1362,6 +1374,18 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: DeactivateObject
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 422589684}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Main Menu
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
         m_MethodName: LoadNewLevel
         m_Mode: 5
         m_Arguments:
@@ -1508,14 +1532,26 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: ReloadLevel
-        m_Mode: 1
+        m_MethodName: DeactivateObject
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 402609603456186728}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadNewLevel
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level 1
+          m_StringArgument: Level 2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &524103826
@@ -5288,6 +5324,18 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: DeactivateObject
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 402609603456186728}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
         m_MethodName: LoadNewLevel
         m_Mode: 5
         m_Arguments:
@@ -5998,7 +6046,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level 2
+          m_StringArgument: Main Menu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1773477863
@@ -15812,6 +15860,7 @@ MonoBehaviour:
   playerCamera: {fileID: 8261380307274702181}
   attackPoint: {fileID: 8261380305842285977}
   bulletImpact: {fileID: 7349718123842060431, guid: b02cba605eb19824483a78a7bab68e3c, type: 3}
+  critImpact: {fileID: 3022638917845887224, guid: a0bc3c6fc9d842a4fa484e16006e0f72, type: 3}
   muzzleFlash: {fileID: 8261380306163993519}
   environmentMask:
     serializedVersion: 2
@@ -15823,7 +15872,7 @@ MonoBehaviour:
   playerInventory: {fileID: 8261380307373194707}
   prefsManager: {fileID: 2107729607}
   weaponManager: {fileID: 8261380305664115890}
-  owned: 0
+  owned: 1
   <weaponName>k__BackingField: Glock-17
   weaponIndex: 1
   damage: 21
@@ -15973,6 +16022,7 @@ MonoBehaviour:
   playerCamera: {fileID: 8261380307274702181}
   attackPoint: {fileID: 8261380305626684108}
   bulletImpact: {fileID: 7349718123842060431, guid: b02cba605eb19824483a78a7bab68e3c, type: 3}
+  critImpact: {fileID: 3022638917845887224, guid: a0bc3c6fc9d842a4fa484e16006e0f72, type: 3}
   muzzleFlash: {fileID: 8261380307096469785}
   environmentMask:
     serializedVersion: 2
@@ -17724,6 +17774,7 @@ MonoBehaviour:
   playerCamera: {fileID: 8261380307274702181}
   attackPoint: {fileID: 8261380306892656923}
   bulletImpact: {fileID: 7349718123842060431, guid: b02cba605eb19824483a78a7bab68e3c, type: 3}
+  critImpact: {fileID: 3022638917845887224, guid: a0bc3c6fc9d842a4fa484e16006e0f72, type: 3}
   muzzleFlash: {fileID: 8261380306172225245}
   environmentMask:
     serializedVersion: 2
@@ -17861,6 +17912,7 @@ MonoBehaviour:
   playerCamera: {fileID: 8261380307274702181}
   attackPoint: {fileID: 8261380307557209421}
   bulletImpact: {fileID: 7349718123842060431, guid: b02cba605eb19824483a78a7bab68e3c, type: 3}
+  critImpact: {fileID: 3022638917845887224, guid: a0bc3c6fc9d842a4fa484e16006e0f72, type: 3}
   muzzleFlash: {fileID: 8261380306697153831}
   environmentMask:
     serializedVersion: 2
@@ -20768,7 +20820,7 @@ MonoBehaviour:
   - {fileID: 5456723734399024111}
   - {fileID: 6407684428267804742}
   - {fileID: 5562725718642545478}
-  weaponCurrentAmmo: 01000000000000006801000024000000
+  weaponCurrentAmmo: 01000000330000005a00000024000000
   weaponMaxAmmo: 01000000880000006801000024000000
   playerMovement: {fileID: 8261380307373194706}
   centerHorizontalPosition: 0
@@ -41481,6 +41533,7 @@ MonoBehaviour:
   playerCamera: {fileID: 8261380307274702181}
   attackPoint: {fileID: 0}
   bulletImpact: {fileID: 7349718123842060431, guid: b02cba605eb19824483a78a7bab68e3c, type: 3}
+  critImpact: {fileID: 3022638917845887224, guid: a0bc3c6fc9d842a4fa484e16006e0f72, type: 3}
   muzzleFlash: {fileID: 0}
   environmentMask:
     serializedVersion: 2
@@ -48806,6 +48859,7 @@ MonoBehaviour:
   playerCamera: {fileID: 8261380307274702181}
   attackPoint: {fileID: 8261380306764658476}
   bulletImpact: {fileID: 7349718123842060431, guid: b02cba605eb19824483a78a7bab68e3c, type: 3}
+  critImpact: {fileID: 0}
   muzzleFlash: {fileID: 8261380306581208216}
   environmentMask:
     serializedVersion: 2

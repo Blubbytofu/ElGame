@@ -58,7 +58,10 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
     [SerializeField] private float dashDelay;
     [SerializeField] private float dashFinalDelay;
 
-    [SerializeField] private GameObject imploder;
+    [SerializeField] private GameObject slowShockwave;
+    [SerializeField] private int chargeIterations;
+
+    private int lastAttackIndex;
 
     private void Awake()
     {
@@ -137,17 +140,27 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
         {
             alreadyAttacked = true;
 
-            int randNum = Random.Range(0, 1);
+            int randNum = Random.Range(0, 3);
+
+            while (randNum == lastAttackIndex)
+            {
+                randNum = Random.Range(0, 3);
+            }
 
             if (randNum == 0)
             {
-                //StartCoroutine(GroundPound());
                 StartCoroutine(Charge());
             }
-            else
+            else if (randNum == 1)
             {
-                //StartCoroutine(DashShoot());
+                StartCoroutine(GroundPound());
             }
+            else 
+            {
+                StartCoroutine(DashShoot());
+            }
+
+            lastAttackIndex = randNum;
         }
     }
 
@@ -222,20 +235,31 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
             spawnPoint = highShockwavePoint.position;
         }
 
-        Instantiate(shockwave, spawnPoint, Quaternion.identity);
+        GameObject wave = Instantiate(shockwave, spawnPoint, Quaternion.identity);
+        foreach (Collider collider in childHitBoxes)
+        {
+            Physics.IgnoreCollision(wave.GetComponent<Collider>(), collider, true);
+        }
     }
     
     private IEnumerator Charge()
     {
         ActivateRbMode();
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < chargeIterations; i++)
         {
             Vector3 finalPosition = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
             yield return new WaitForSeconds(0.25f);
             bossRb.AddForce(50 * (finalPosition - transform.position).normalized, ForceMode.Impulse);
             yield return new WaitForSeconds(0.25f);
             bossRb.velocity = Vector3.zero;
+
+            GameObject wave = Instantiate(slowShockwave, attackPoint.position, Quaternion.LookRotation(transform.forward, Vector3.Cross((player.transform.position.ReplaceField(newY: transform.position.y) - transform.position).normalized, Vector3.up)));
+            foreach (Collider collider in childHitBoxes)
+            {
+                Physics.IgnoreCollision(wave.GetComponent<Collider>(), collider, true);
+            }
+
             yield return new WaitForSeconds(0.25f);
         }
 
@@ -323,6 +347,7 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
 
     private void OnCollisionEnter(Collision collision)
     {
+        /*
         PlayerInventory playerInventory = collision.gameObject.GetComponent<PlayerInventory>();
         if (playerInventory != null)
         {
@@ -331,6 +356,7 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
             playerRb.AddForce(1000 * Vector3.up, ForceMode.Impulse);
             playerInventory.TakeDamage(10);
         }
+        */
     }
 
     private void OnDrawGizmosSelected()

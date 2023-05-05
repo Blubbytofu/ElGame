@@ -12,6 +12,7 @@ namespace PlayerObject
         [SerializeField] private PlayerCamera playerCamera;
         [SerializeField] private Transform attackPoint;
         [SerializeField] private GameObject bulletImpact;
+        [SerializeField] private GameObject critImpact;
         [SerializeField] private ParticleSystem muzzleFlash;
         [SerializeField] private LayerMask environmentMask, enemyMask;
         [SerializeField] private Animator weaponAnimator;
@@ -291,7 +292,29 @@ namespace PlayerObject
                     {
                         if (bulletImpact != null)
                         {
-                            Instantiate(bulletImpact, rayHit.point, Quaternion.LookRotation(rayHit.normal));
+                            EnemyBodyPart hitPart = rayHit.transform.gameObject.GetComponent<EnemyBodyPart>();
+                            if (hitPart != null)
+                            {
+                                Debug.Log("Hit" + hitPart.damageMultiplier);
+                                if (hitPart.damageMultiplier == 1)
+                                {
+                                    Instantiate(bulletImpact, rayHit.point, Quaternion.LookRotation(rayHit.normal));
+                                }
+                                else if (hitPart.damageMultiplier < 1)
+                                {
+
+                                }
+                                else if (hitPart.damageMultiplier > 1)
+                                {
+                                    GameObject hit = Instantiate(critImpact, rayHit.point, Quaternion.LookRotation(rayHit.normal));
+                                    Destroy(hit, 1f);
+                                }
+                            }
+                            else
+                            {
+                                Debug.Log(rayHit.transform.gameObject.name);
+                                Instantiate(bulletImpact, rayHit.point, Quaternion.LookRotation(rayHit.normal));
+                            }
                         }
 
                         IDamageable damageable = rayHit.collider.gameObject.GetComponent<IDamageable>();
