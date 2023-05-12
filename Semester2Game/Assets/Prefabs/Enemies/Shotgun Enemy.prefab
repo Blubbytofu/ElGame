@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f0d2ea87ae0592f44afc8203825354ca, type: 2}
+  - {fileID: 2100000, guid: 2d4eb4632ff89504084de124ceedf2e4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -180,7 +180,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 64958a4760fa5a44986c371dd2dc0f7b, type: 2}
+  - {fileID: 2100000, guid: 808e5bc0f76962c459361fe60e2d29ec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -294,7 +294,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1827362d841cdc448b742aea6614c192, type: 2}
+  - {fileID: 2100000, guid: 54eb0a880c35ecd4fa56b3b6c33e8aaa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -377,7 +377,7 @@ Transform:
   m_Children:
   - {fileID: 3284945218510185197}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &3284945220085082945
 NavMeshAgent:

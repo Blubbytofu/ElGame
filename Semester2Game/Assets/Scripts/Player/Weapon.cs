@@ -295,7 +295,6 @@ namespace PlayerObject
                             EnemyBodyPart hitPart = rayHit.transform.gameObject.GetComponent<EnemyBodyPart>();
                             if (hitPart != null)
                             {
-                                Debug.Log("Hit" + hitPart.damageMultiplier);
                                 if (hitPart.damageMultiplier == 1)
                                 {
                                     Instantiate(bulletImpact, rayHit.point, Quaternion.LookRotation(rayHit.normal));
@@ -312,7 +311,6 @@ namespace PlayerObject
                             }
                             else
                             {
-                                Debug.Log(rayHit.transform.gameObject.name);
                                 Instantiate(bulletImpact, rayHit.point, Quaternion.LookRotation(rayHit.normal));
                             }
                         }

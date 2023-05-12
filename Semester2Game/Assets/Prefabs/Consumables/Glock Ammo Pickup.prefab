@@ -35,7 +35,7 @@ Transform:
   - {fileID: 2183140007434247188}
   - {fileID: 4295244945563304556}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
 --- !u!137 &8495927880685775441
 SkinnedMeshRenderer:

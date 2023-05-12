@@ -146,7 +146,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c852af001dae0064e9acaa832f1dadb7, type: 2}
+  - {fileID: 2100000, guid: d88dc53659fd68a4b89a85ff422be169, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentDamageable: {fileID: 6232917905794983542}
-  damageMultiplier: 1
+  <damageMultiplier>k__BackingField: 0
   facePlayer: 1
   doNotFaceHeight: 1
 --- !u!1 &6232917905794983542
