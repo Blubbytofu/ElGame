@@ -18,6 +18,7 @@ namespace PlayerObject
         [SerializeField] private GameObject[] weapons;
         [SerializeField] private int[] weaponCurrentAmmo;
         [SerializeField] private int[] weaponMaxAmmo;
+        [SerializeField] private GameObject[] weaponHUDIndicators;
         private int weaponID;
         private int lastWeaponUsedID;
 
@@ -53,6 +54,7 @@ namespace PlayerObject
             EquipWeapon();
             MoveSway();
             LastWeaponInput();
+            UnlockedWeaponsHUDIndicator();
 
             bool mag = weaponComp.hasMag;
             bool parent = weaponComp.isParentWeapon && weaponComp.activeSecondary;
@@ -75,6 +77,21 @@ namespace PlayerObject
             //exceptions examples
             //weaponCurrentAmmo[3] = weaponCurrentAmmo[2];
             //weaponMaxAmmo[3] = weaponMaxAmmo[2];
+        }
+
+        private void UnlockedWeaponsHUDIndicator()
+        {
+            for (int i = 0; i < weapons.Length; i++)
+            {
+                if (weapons[i].GetComponent<Weapon>().owned)
+                {
+                    weaponHUDIndicators[i].SetActive(true);
+                }
+                else
+                {
+                    weaponHUDIndicators[i].SetActive(false);
+                }
+            }
         }
 
         public void ForceUnlockWeapon(int index)

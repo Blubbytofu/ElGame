@@ -29,6 +29,11 @@ namespace PlayerObject
 
         [SerializeField] private float levelIntroTime;
 
+        [SerializeField] private GameObject poisonIndicator;
+
+        [SerializeField] private GameObject redKeyIndicator;
+        [SerializeField] private GameObject blueKeyIndicator;
+
         private void Start()
         {
             StartCoroutine(TrackFrames());
@@ -47,6 +52,21 @@ namespace PlayerObject
             {
                 HideLevelIntro();
             }
+        }
+
+        public void SetRedKeyIndicator(bool newState)
+        {
+            redKeyIndicator.SetActive(newState);
+        }
+
+        public void SetBlueKeyIndicator(bool newState)
+        {
+            blueKeyIndicator.SetActive(newState);
+        }
+
+        public void SetPoisonIndicator(bool newState)
+        {
+            poisonIndicator.SetActive(newState);
         }
 
         private void ShowLevelIntro()

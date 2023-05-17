@@ -5,7 +5,7 @@ using UnityEngine;
 public class BreakableProp : MonoBehaviour, IDamageable
 {
     [SerializeField] private int maxHealth;
-    [SerializeField] private int health;
+    private int health;
 
     private bool dead;
     [SerializeField] private GameObject deathSpawn;
@@ -14,6 +14,9 @@ public class BreakableProp : MonoBehaviour, IDamageable
     [SerializeField] private float torqueForce;
 
     [SerializeField] private DropLoot dropLoot;
+
+    [SerializeField] private bool willDespawn;
+    [SerializeField] private float lifetime;
 
     public void ReceiveDamage(int damage)
     {
@@ -46,5 +49,10 @@ public class BreakableProp : MonoBehaviour, IDamageable
     public void Start()
     {
         health = maxHealth;
+
+        if (willDespawn)
+        {
+            Destroy(gameObject, lifetime);
+        }
     }
 }

@@ -102,6 +102,7 @@ namespace PlayerObject
             }
 
             currentlyTakingDOT = true;
+            hudManager.SetPoisonIndicator(true);
 
             for (int i = 0; i < ticks; i++)
             {
@@ -109,6 +110,7 @@ namespace PlayerObject
                 yield return new WaitForSeconds(delay);
             }
 
+            hudManager.SetPoisonIndicator(false);
             currentlyTakingDOT = false;
         }
 
@@ -119,6 +121,14 @@ namespace PlayerObject
                 wonLevel = true;
                 hudManager.SetGameHUDVisible(false);
                 hudManager.SetWonGameMenuVisible(true);
+            }
+            else
+            {
+                IConsumable consumable = other.gameObject.GetComponent<IConsumable>();
+                if (consumable != null)
+                {
+                    consumable.Consume(this, weaponManager);
+                }
             }
         }
 
@@ -251,11 +261,13 @@ namespace PlayerObject
         public void AddRedKey()
         {
             hasRedKey = true;
+            hudManager.SetRedKeyIndicator(true);
         }
 
         public void AddBlueKey()
         {
             hasBlueKey = true;
+            hudManager.SetBlueKeyIndicator(true);
         }
 
         //deprecated

@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour, IInteractable
 
     public void OnTriggerEnter(Collider other)
     {
-        if (hasTrigger)
+        if (hasTrigger && other.gameObject.name == "Player")
         {
             Interact(gameObject);
         }

@@ -36,6 +36,7 @@ public class RangedEnemy : MonoBehaviour, IDamageable
     [Header("Attack--------------------------------------------------------------------------------------------------")]
     [SerializeField] private bool isHitScan;
     [SerializeField] private int hitScanDamage;
+    [SerializeField] private GameObject hitScanEffect;
 
     [SerializeField] private float attackDelay;
     private bool alreadyAttacked;
@@ -159,6 +160,8 @@ public class RangedEnemy : MonoBehaviour, IDamageable
             if (isHitScan)
             {
                 player.GetComponent<PlayerInventory>().TakeDamage(hitScanDamage);
+                EnemyMeleeEffect effect = Instantiate(hitScanEffect, transform.position, Quaternion.LookRotation((player.transform.position - transform.position).normalized, Vector3.up)).GetComponent<EnemyMeleeEffect>();
+                effect.enemyTransform = transform;
             }
             else
             {

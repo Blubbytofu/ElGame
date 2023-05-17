@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentDamageable: {fileID: 6232917905794983542}
-  <damageMultiplier>k__BackingField: 0
+  <damageMultiplier>k__BackingField: 1
   facePlayer: 1
   doNotFaceHeight: 1
 --- !u!1 &6232917905794983542
@@ -290,6 +290,7 @@ MonoBehaviour:
   aggressiveApproach: 0
   isHitScan: 1
   hitScanDamage: 40
+  hitScanEffect: {fileID: 7923868290636452321, guid: bc38213e18f5ea84ca752d1b15edd676, type: 3}
   attackDelay: 0.5
   projectile: {fileID: 0}
   projectileVel: 0

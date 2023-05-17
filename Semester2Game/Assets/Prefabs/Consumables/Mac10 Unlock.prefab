@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 327171512480272602}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bone.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,8 @@ GameObject:
   - component: {fileID: 6934265671403483411}
   - component: {fileID: 6934265671403483410}
   - component: {fileID: 6934265671403483409}
-  m_Layer: 0
+  - component: {fileID: 2651987662679231151}
+  m_Layer: 6
   m_Name: Mac10 Unlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,8 +65,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8321774823854607274}
+  - {fileID: 1733753129501610346}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &3811533000078482681
 SkinnedMeshRenderer:
@@ -175,6 +177,19 @@ MonoBehaviour:
   ammoAmount: 0
   unlockWeapon: 1
   unlockIndex: 2
+--- !u!135 &2651987662679231151
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4215773516296866593}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.003628715
+  m_Center: {x: -0.000019210427, y: -0.0002065069, z: -0.00073539256}
 --- !u!1 &5053956587223758093
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6012660362667256915}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2402948353138619349}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bone.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8321774823854607274}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mac10_rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,6 +287,100 @@ Transform:
   m_Father: {fileID: 6934265671403483408}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6897977138551250631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1733753129501610346}
+  - component: {fileID: 2258103895501732428}
+  m_Layer: 6
+  m_Name: Point Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1733753129501610346
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6897977138551250631}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.000098, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6934265671403483408}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &2258103895501732428
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6897977138551250631}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 0.161767, g: 1, b: 0, a: 1}
+  m_Intensity: 0.3
+  m_Range: 1
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 1
+  m_Flare: {fileID: 0}
+  m_RenderMode: 1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 1975
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &9076706381013280631
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8678843995471809176}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bone.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}

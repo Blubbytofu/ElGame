@@ -361,7 +361,7 @@ Transform:
   - {fileID: 6837208878846182884}
   - {fileID: 4782160754044685461}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &6837208879828748410
 NavMeshAgent:
@@ -446,13 +446,13 @@ MonoBehaviour:
   projectileVel: 40
   bulletsPerShot: 1
   attackPoint: {fileID: 6837208879206688828}
-  dashIterations: 3
+  dashIterations: 7
   dashForce: 50
   dashTime: 0.12
   dashDelay: 0.2
   dashFinalDelay: 0.5
   slowShockwave: {fileID: 3169129246056993921, guid: 6d921b49e1d7dbf4ca9d57e8ddef0ce6, type: 3}
-  chargeIterations: 0
+  chargeIterations: 5
 --- !u!114 &6837208879828748405
 MonoBehaviour:
   m_ObjectHideFlags: 0
