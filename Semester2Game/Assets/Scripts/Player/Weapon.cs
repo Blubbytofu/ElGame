@@ -19,6 +19,7 @@ namespace PlayerObject
         [SerializeField] private PlayerInventory playerInventory;
         [SerializeField] private PrefsManager prefsManager;
         [SerializeField] private WeaponManager weaponManager;
+        [SerializeField] private Rigidbody playerRb;
         private RaycastHit rayHit;
 
         [Header("Weapon Identity-----------------------------------------------------------------------------")]
@@ -29,14 +30,15 @@ namespace PlayerObject
         [SerializeField] private float timeBetweenShooting;
         [SerializeField] private float range;
         //bullets shot per instance of shooting
-        [SerializeField] private int bulletsPerShot;
+        public int bulletsPerShot;
         //bullets subtracted from ammo pool
         [SerializeField] private int bulletsSubtracted;
         [SerializeField] private bool singleFire;
         private bool shooting;
         private bool readyToShoot;
-        [SerializeField] private bool isHitScan;
+        public bool isHitScan;
         [SerializeField] private GameObject projectile;
+        [SerializeField] private bool inheritPlayerVel;
         [SerializeField] private float projectileZVel;
         [SerializeField] private float projectileYVel;
 
@@ -369,8 +371,15 @@ namespace PlayerObject
                     Vector3 projectileDirection = projectileDestination - attackPoint.position;
                     playerProjectile.transform.forward = projectileDirection.normalized;
 
-                    playerProjectile.GetComponent<Rigidbody>().AddForce(playerProjectile.transform.forward * projectileZVel, ForceMode.Impulse);
-                    playerProjectile.GetComponent<Rigidbody>().AddForce(playerProjectile.transform.up * projectileYVel, ForceMode.Impulse);
+                    Rigidbody projectileRb = playerProjectile.GetComponent<Rigidbody>();
+
+                    projectileRb.AddForce(playerProjectile.transform.forward * projectileZVel, ForceMode.Impulse);
+                    projectileRb.AddForce(playerProjectile.transform.up * projectileYVel, ForceMode.Impulse);
+
+                    if (inheritPlayerVel)
+                    {
+                        projectileRb.AddForce(playerRb.velocity, ForceMode.VelocityChange);
+                    }
                 }
 
 

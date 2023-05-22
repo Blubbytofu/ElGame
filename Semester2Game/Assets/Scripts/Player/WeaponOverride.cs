@@ -10,19 +10,22 @@ namespace PlayerObject
         [SerializeField] private PrefsManager prefsManager;
 
         [SerializeField] private Weapon weapon;
-        [SerializeField] private PlayerCamera pCamera;
+        //[SerializeField] private PlayerCamera pCamera;
 
         [SerializeField] private bool singleFire;
         public bool shooting { get; private set; }
 
-        [SerializeField] private bool zoom;
-        [SerializeField] private float zoomAmount;
+        //[SerializeField] private bool zoom;
+        //[SerializeField] private float zoomAmount;
 
         [SerializeField] private bool dualWield;
         [SerializeField] private GameObject secondGun;
 
         [SerializeField] private bool altBurstMode;
         [SerializeField] private bool altProjectile;
+        [SerializeField] private bool altShotNumber;
+        [SerializeField] private int bulletsPerShot;
+        [SerializeField] private int newBulletsPerShot;
 
         [SerializeField] private bool affectSpread;
         [SerializeField] private float normalInitialSpread;
@@ -80,6 +83,7 @@ namespace PlayerObject
                 }
             }
 
+            /*
             if (zoom)
             {
                 if (shooting)
@@ -91,6 +95,7 @@ namespace PlayerObject
                     pCamera.zoomFactor = 1;
                 }
             }
+            */
 
             if (altBurstMode)
             {
@@ -118,6 +123,30 @@ namespace PlayerObject
                 {
                     weapon.initialSpread = normalInitialSpread;
                     weapon.maxSpread = normalMaxSpread;
+                }
+            }
+
+            if (altProjectile)
+            {
+                if (shooting)
+                {
+                    weapon.isHitScan = false;
+                }
+                else
+                {
+                    weapon.isHitScan = true;
+                }
+            }
+
+            if (altShotNumber)
+            {
+                if (shooting)
+                {
+                    weapon.bulletsPerShot = newBulletsPerShot;
+                }
+                else
+                {
+                    weapon.bulletsPerShot = bulletsPerShot;
                 }
             }
         }

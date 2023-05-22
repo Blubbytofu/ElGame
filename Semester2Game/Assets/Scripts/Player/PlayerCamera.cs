@@ -26,7 +26,7 @@ namespace PlayerObject
         [SerializeField] private float ySensitivity = 2f;
         [SerializeField] private int FOV;
         [SerializeField] private int secondaryFOV;
-        [HideInInspector] public float zoomFactor;
+        //[HideInInspector] public float zoomFactor;
 
         [Header("Other-----------------------------------------------------------------------------")]
         [SerializeField] private float headRadius;
@@ -38,7 +38,7 @@ namespace PlayerObject
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
-            zoomFactor = 1;
+            //zoomFactor = 1;
         }
 
         private void Update()
@@ -59,8 +59,8 @@ namespace PlayerObject
             DetectHead();
             GetChildrenZoom();
 
-            primaryCamera.fieldOfView = FOV * (1.0f / zoomFactor);
-            secondaryCamera.fieldOfView = secondaryFOV * (1.0f / zoomFactor);
+            primaryCamera.fieldOfView = FOV; // * (1.0f / zoomFactor);
+            secondaryCamera.fieldOfView = secondaryFOV; // * (1.0f / zoomFactor);
         }
 
         private void LateUpdate()

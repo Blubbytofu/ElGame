@@ -452,9 +452,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '0.00
-
-'
+  m_text: 2.0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4040,7 +4038,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00
+  m_text: 90
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5729,9 +5727,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '0.00
-
-'
+  m_text: 2.0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7744,7 +7740,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00
+  m_text: 90
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8132,9 +8128,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '00
-
-'
+  m_text: 120
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -17197,6 +17191,7 @@ MonoBehaviour:
   playerInventory: {fileID: 8261380307373194707}
   prefsManager: {fileID: 2107729607}
   weaponManager: {fileID: 8261380305664115890}
+  playerRb: {fileID: 8261380307373194704}
   owned: 0
   <weaponName>k__BackingField: Glock-17
   weaponIndex: 1
@@ -17208,6 +17203,7 @@ MonoBehaviour:
   singleFire: 1
   isHitScan: 1
   projectile: {fileID: 0}
+  inheritPlayerVel: 0
   projectileZVel: 0
   projectileYVel: 0
   initialSpread: 0.02
@@ -17262,14 +17258,14 @@ MonoBehaviour:
   playerInventory: {fileID: 8261380307373194707}
   prefsManager: {fileID: 2107729607}
   weapon: {fileID: 8261380305962738635}
-  pCamera: {fileID: 0}
   singleFire: 1
-  zoom: 0
-  zoomAmount: 0
   dualWield: 0
   secondGun: {fileID: 0}
   altBurstMode: 1
   altProjectile: 0
+  altShotNumber: 0
+  bulletsPerShot: 0
+  newBulletsPerShot: 0
   affectSpread: 1
   normalInitialSpread: 0.02
   normalMaxSpread: 0.02
@@ -17286,6 +17282,7 @@ GameObject:
   - component: {fileID: 7240857152259632432}
   - component: {fileID: 8261380305935944628}
   - component: {fileID: 8261380305935944627}
+  - component: {fileID: 8111966572085708860}
   m_Layer: 7
   m_Name: Shotgun
   m_TagString: Untagged
@@ -17359,6 +17356,7 @@ MonoBehaviour:
   playerInventory: {fileID: 8261380307373194707}
   prefsManager: {fileID: 2107729607}
   weaponManager: {fileID: 8261380305664115890}
+  playerRb: {fileID: 8261380307373194704}
   owned: 0
   <weaponName>k__BackingField: Spas-12
   weaponIndex: 3
@@ -17369,11 +17367,12 @@ MonoBehaviour:
   bulletsSubtracted: 1
   singleFire: 1
   isHitScan: 1
-  projectile: {fileID: 0}
-  projectileZVel: 0
+  projectile: {fileID: 9134889798877919400, guid: 4bb81fb494acdf84fa8c36c50bf38ad1, type: 3}
+  inheritPlayerVel: 1
+  projectileZVel: 15
   projectileYVel: 0
-  initialSpread: 0
-  maxSpread: 0
+  initialSpread: 0.05
+  maxSpread: 0.05
   currentSpread: 0.05
   deltaSpread: 0
   spreadDecreaseDelay: 0
@@ -17409,6 +17408,34 @@ MonoBehaviour:
   activeSecondary: 0
   queueShotProperty: 0
   queueInterval: 0
+--- !u!114 &8111966572085708860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5562725718642545478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f99b4659a5dee3a428d2dcbaa1a3e14c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInventory: {fileID: 8261380307373194707}
+  prefsManager: {fileID: 2107729607}
+  weapon: {fileID: 8261380305935944627}
+  singleFire: 0
+  dualWield: 0
+  secondGun: {fileID: 0}
+  altBurstMode: 0
+  altProjectile: 1
+  altShotNumber: 1
+  bulletsPerShot: 6
+  newBulletsPerShot: 1
+  affectSpread: 1
+  normalInitialSpread: 0.05
+  normalMaxSpread: 0.05
+  newInitialSpread: 0
+  newMaxSpread: 0
 --- !u!1 &5696823773288349142
 GameObject:
   m_ObjectHideFlags: 0
@@ -19111,6 +19138,7 @@ MonoBehaviour:
   playerInventory: {fileID: 8261380307373194707}
   prefsManager: {fileID: 2107729607}
   weaponManager: {fileID: 8261380305664115890}
+  playerRb: {fileID: 8261380307373194704}
   owned: 1
   <weaponName>k__BackingField: MAC-10
   weaponIndex: 2
@@ -19122,6 +19150,7 @@ MonoBehaviour:
   singleFire: 0
   isHitScan: 1
   projectile: {fileID: 0}
+  inheritPlayerVel: 0
   projectileZVel: 0
   projectileYVel: 0
   initialSpread: 0.02
@@ -19249,6 +19278,7 @@ MonoBehaviour:
   playerInventory: {fileID: 8261380307373194707}
   prefsManager: {fileID: 2107729607}
   weaponManager: {fileID: 8261380305664115890}
+  playerRb: {fileID: 8261380307373194704}
   owned: 0
   <weaponName>k__BackingField: MAC-10
   weaponIndex: 2
@@ -19260,6 +19290,7 @@ MonoBehaviour:
   singleFire: 0
   isHitScan: 1
   projectile: {fileID: 0}
+  inheritPlayerVel: 0
   projectileZVel: 0
   projectileYVel: 0
   initialSpread: 0.02
@@ -19314,14 +19345,14 @@ MonoBehaviour:
   playerInventory: {fileID: 8261380307373194707}
   prefsManager: {fileID: 2107729607}
   weapon: {fileID: 8261380307011553506}
-  pCamera: {fileID: 0}
   singleFire: 1
-  zoom: 0
-  zoomAmount: 0
   dualWield: 1
   secondGun: {fileID: 6407684427373536373}
   altBurstMode: 0
   altProjectile: 0
+  altShotNumber: 0
+  bulletsPerShot: 0
+  newBulletsPerShot: 0
   affectSpread: 0
   normalInitialSpread: 0
   normalMaxSpread: 0
@@ -42878,6 +42909,7 @@ MonoBehaviour:
   playerInventory: {fileID: 8261380307373194707}
   prefsManager: {fileID: 2107729607}
   weaponManager: {fileID: 8261380305664115890}
+  playerRb: {fileID: 8261380307373194704}
   owned: 1
   <weaponName>k__BackingField: Crowbar
   weaponIndex: 0
@@ -42889,6 +42921,7 @@ MonoBehaviour:
   singleFire: 0
   isHitScan: 1
   projectile: {fileID: 0}
+  inheritPlayerVel: 0
   projectileZVel: 0
   projectileYVel: 0
   initialSpread: 0
@@ -48231,7 +48264,7 @@ Transform:
   - {fileID: 8261380307373194671}
   - {fileID: 8261380307274702180}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8261380307265084604
 GameObject:
@@ -48479,7 +48512,6 @@ MonoBehaviour:
   ySensitivity: 2
   FOV: 90
   secondaryFOV: 90
-  zoomFactor: 0
   headRadius: 0.2
   interactRange: 1.85
 --- !u!1 &8261380307310933642
@@ -50204,6 +50236,7 @@ MonoBehaviour:
   playerInventory: {fileID: 8261380307373194707}
   prefsManager: {fileID: 2107729607}
   weaponManager: {fileID: 8261380305664115890}
+  playerRb: {fileID: 0}
   owned: 0
   <weaponName>k__BackingField: AK-47
   weaponIndex: 4
@@ -50215,6 +50248,7 @@ MonoBehaviour:
   singleFire: 0
   isHitScan: 1
   projectile: {fileID: 0}
+  inheritPlayerVel: 0
   projectileZVel: 0
   projectileYVel: 0
   initialSpread: 0.01
@@ -50269,14 +50303,14 @@ MonoBehaviour:
   playerInventory: {fileID: 8261380307373194707}
   prefsManager: {fileID: 2107729607}
   weapon: {fileID: 8261380306194290932}
-  pCamera: {fileID: 8261380307274702181}
   singleFire: 0
-  zoom: 1
-  zoomAmount: 1.5
   dualWield: 0
   secondGun: {fileID: 0}
   altBurstMode: 0
   altProjectile: 0
+  altShotNumber: 0
+  bulletsPerShot: 0
+  newBulletsPerShot: 0
   affectSpread: 0
   normalInitialSpread: 0
   normalMaxSpread: 0
