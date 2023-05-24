@@ -130,6 +130,21 @@ namespace PlayerObject
                     consumable.Consume(this, weaponManager);
                 }
             }
+
+            TextTip textTip = other.gameObject.GetComponent<TextTip>();
+            if (textTip != null)
+            {
+                hudManager.SetTextTipText(textTip.message);
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            TextTip textTip = other.gameObject.GetComponent<TextTip>();
+            if (textTip != null)
+            {
+                hudManager.SetTextTipText("");
+            }
         }
 
         private void OnCollisionStay(Collision collision)

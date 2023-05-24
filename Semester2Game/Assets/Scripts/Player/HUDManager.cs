@@ -34,6 +34,8 @@ namespace PlayerObject
         [SerializeField] private GameObject redKeyIndicator;
         [SerializeField] private GameObject blueKeyIndicator;
 
+        [SerializeField] private TextMeshProUGUI textTipText;
+
         private void Start()
         {
             StartCoroutine(TrackFrames());
@@ -52,6 +54,11 @@ namespace PlayerObject
             {
                 HideLevelIntro();
             }
+        }
+
+        public void SetTextTipText(string newText)
+        {
+            textTipText.text = newText;
         }
 
         public void SetRedKeyIndicator(bool newState)
