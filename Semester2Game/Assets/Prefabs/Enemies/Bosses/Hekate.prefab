@@ -695,6 +695,8 @@ MonoBehaviour:
   parentDamageable: {fileID: 8788344936930177905}
   <damageMultiplier>k__BackingField: 2
   facePlayer: 0
+  lerpFace: 0
+  lerpSpeed: 0
   doNotFaceHeight: 0
 --- !u!1 &8788344935908670885
 GameObject:
@@ -908,6 +910,8 @@ MonoBehaviour:
   parentDamageable: {fileID: 8788344936930177905}
   <damageMultiplier>k__BackingField: 1
   facePlayer: 1
+  lerpFace: 0
+  lerpSpeed: 0
   doNotFaceHeight: 1
 --- !u!1 &8788344936310955653
 GameObject:

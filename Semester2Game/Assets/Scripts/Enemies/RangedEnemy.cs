@@ -49,6 +49,9 @@ public class RangedEnemy : MonoBehaviour, IDamageable
     [SerializeField] private float interruptAttackTime;
     private bool interrupted;
 
+    [SerializeField] private bool canOnlyShootForwards;
+    [SerializeField] private GameObject forwardsDirection;
+
     private bool isDead;
 
     private void Awake()
@@ -169,7 +172,15 @@ public class RangedEnemy : MonoBehaviour, IDamageable
 
                 for (int i = 0; i < bulletsPerShot; i++)
                 {
-                    Vector3 target = player.transform.position + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, bulletSpread));
+                    Vector3 target;
+                    if (canOnlyShootForwards)
+                    {
+                        target = forwardsDirection.transform.forward * 10 + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, bulletSpread));
+                    }
+                    else
+                    {
+                        target = player.transform.position + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, bulletSpread));
+                    }
 
                     Rigidbody rb = Instantiate(projectile, attackPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
 

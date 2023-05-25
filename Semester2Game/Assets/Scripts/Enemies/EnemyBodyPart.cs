@@ -9,6 +9,8 @@ public class EnemyBodyPart : MonoBehaviour, IDamageable
     [field: SerializeField] public float damageMultiplier { get; private set; }
 
     [SerializeField] private bool facePlayer;
+    [SerializeField] private bool lerpFace;
+    [SerializeField] private float lerpSpeed;
     [SerializeField] private bool doNotFaceHeight;
     private Transform playerTransform;
 
@@ -27,6 +29,10 @@ public class EnemyBodyPart : MonoBehaviour, IDamageable
             if (doNotFaceHeight)
             {
                 transform.LookAt(playerTransform.position.ReplaceField(newY: transform.position.y));
+            }
+            else if (lerpFace)
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation((playerTransform.position.ReplaceField(newY: transform.position.y) - transform.position).normalized, transform.up), lerpSpeed * Time.deltaTime);
             }
             else
             {

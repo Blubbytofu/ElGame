@@ -113,6 +113,8 @@ MonoBehaviour:
   parentDamageable: {fileID: 6837208879828748407}
   <damageMultiplier>k__BackingField: 1
   facePlayer: 0
+  lerpFace: 0
+  lerpSpeed: 0
   doNotFaceHeight: 0
 --- !u!1 &823934553
 GameObject:
@@ -294,6 +296,8 @@ MonoBehaviour:
   parentDamageable: {fileID: 6837208879828748407}
   <damageMultiplier>k__BackingField: 1
   facePlayer: 1
+  lerpFace: 0
+  lerpSpeed: 0
   doNotFaceHeight: 1
 --- !u!1 &6837208879206688829
 GameObject:
@@ -340,7 +344,7 @@ GameObject:
   - component: {fileID: 6837208879828748404}
   - component: {fileID: 6837208879828748405}
   m_Layer: 0
-  m_Name: Boss 2
+  m_Name: Boss 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -361,7 +365,7 @@ Transform:
   - {fileID: 6837208878846182884}
   - {fileID: 4782160754044685461}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &6837208879828748410
 NavMeshAgent:
@@ -478,7 +482,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2071375032511276765, guid: be5ec0fe8ad315b4e8e6070c59d58d51, type: 3}
       propertyPath: m_text
-      value: Guardian
+      value: 'Angron
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 2071375033523426070, guid: be5ec0fe8ad315b4e8e6070c59d58d51, type: 3}
       propertyPath: m_Name
