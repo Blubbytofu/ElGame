@@ -422,6 +422,7 @@ MonoBehaviour:
   agent: {fileID: 6837208879828748410}
   dropLoot: {fileID: 6837208879828748405}
   player: {fileID: 0}
+  gameManager: {fileID: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 64

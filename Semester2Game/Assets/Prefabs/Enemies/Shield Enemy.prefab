@@ -71,6 +71,7 @@ MonoBehaviour:
   agent: {fileID: 914315556478599395}
   dropLoot: {fileID: 0}
   player: {fileID: 0}
+  gameManager: {fileID: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 64
@@ -94,7 +95,7 @@ MonoBehaviour:
   isHitScan: 0
   hitScanDamage: 0
   hitScanEffect: {fileID: 0}
-  attackDelay: 1.5
+  attackDelay: 1.25
   projectile: {fileID: 7156112301927467049, guid: b6e1609f8f275ea46a9b09da5cd8e75f, type: 3}
   projectileVel: 7
   bulletsPerShot: 1
@@ -1286,7 +1287,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cfd743fc9037f7a4995f45f371df3ed2, type: 2}
+  - {fileID: 2100000, guid: 544e71a27bb255e4eacf9869b76e95c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5045,7 +5046,7 @@ MonoBehaviour:
   <damageMultiplier>k__BackingField: 1
   facePlayer: 1
   lerpFace: 1
-  lerpSpeed: 1.5
+  lerpSpeed: 1.75
   doNotFaceHeight: 0
 --- !u!1 &1211741054141497476
 GameObject:

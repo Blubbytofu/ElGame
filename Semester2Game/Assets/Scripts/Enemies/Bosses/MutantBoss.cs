@@ -14,7 +14,7 @@ public class MutantBoss : MonoBehaviour, IDamageable
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private DropLoot dropLoot;
     [SerializeField] private GameObject player;
-    //[SerializeField] private GameManager gameManager;
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private LayerMask groundMask, playerMask;
     [SerializeField] private GameObject spawnEffect;
     [SerializeField] private Transform attackPoint;
@@ -60,7 +60,7 @@ public class MutantBoss : MonoBehaviour, IDamageable
         }
 
         player = GameObject.Find("Player");
-        //gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         //CheckDoor();
 
         StartCoroutine(SpawnPuddle());
@@ -219,7 +219,7 @@ public class MutantBoss : MonoBehaviour, IDamageable
         {
             isDead = true;
             Destroy(gameObject);
-            //gameManager.enemiesKilled++;
+            gameManager.AddEnemyKilled();
 
             if (dropLoot != null)
             {

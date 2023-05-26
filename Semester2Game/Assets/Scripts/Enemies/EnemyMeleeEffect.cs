@@ -8,6 +8,9 @@ public class EnemyMeleeEffect : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.position = enemyTransform.position;
+        if (enemyTransform != null)
+        {
+            transform.position = enemyTransform.position;
+        }
     }
 }

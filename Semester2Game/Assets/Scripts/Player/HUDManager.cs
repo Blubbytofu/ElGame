@@ -26,6 +26,8 @@ namespace PlayerObject
         [SerializeField] private GameObject altIndicator;
 
         [SerializeField] private TextMeshProUGUI gameCompletionStatsText;
+        [SerializeField] private TextMeshProUGUI gameEnemiesKilledText;
+        [SerializeField] private TextMeshProUGUI gameSecretsFoundText;
 
         [SerializeField] private float levelIntroTime;
 
@@ -109,7 +111,17 @@ namespace PlayerObject
 
         public void SetGameCompletionTime()
         {
-            gameCompletionStatsText.text = gameManager.GetPassedTime();
+            gameCompletionStatsText.text = "Time: " + gameManager.GetPassedTime();
+        }
+
+        public void SetGameEnemiesKilled()
+        {
+            gameEnemiesKilledText.text = "Enemies: " + gameManager.GetCurrentEnemiesKilled() + " / " + gameManager.GetMaxEnemies();
+        }
+
+        public void SetGameSecretsFound()
+        {
+            gameSecretsFoundText.text = "Secrets: " + gameManager.GetCurrentSecretsFound() + " / " + gameManager.GetMaxSecrets();
         }
 
         public void SetGameHUDVisible(bool state)
@@ -126,6 +138,8 @@ namespace PlayerObject
         {
             gameWinMenu.SetActive(state);
             SetGameCompletionTime();
+            SetGameEnemiesKilled();
+            SetGameSecretsFound();
         }
 
         public void UpdateWeapon(string weaponName, int currentAmmo, int maxAmmo)

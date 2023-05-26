@@ -182,6 +182,8 @@ MonoBehaviour:
   parentDamageable: {fileID: 8820600043203833711}
   <damageMultiplier>k__BackingField: 1
   facePlayer: 1
+  lerpFace: 0
+  lerpSpeed: 0
   doNotFaceHeight: 1
 --- !u!1 &3210962561291702462
 GameObject:
@@ -328,6 +330,8 @@ MonoBehaviour:
   parentDamageable: {fileID: 8820600043203833711}
   <damageMultiplier>k__BackingField: 1
   facePlayer: 0
+  lerpFace: 0
+  lerpSpeed: 0
   doNotFaceHeight: 0
 --- !u!1 &5324420096221268985
 GameObject:
@@ -473,6 +477,8 @@ MonoBehaviour:
   parentDamageable: {fileID: 8820600043203833711}
   <damageMultiplier>k__BackingField: 1.5
   facePlayer: 0
+  lerpFace: 0
+  lerpSpeed: 0
   doNotFaceHeight: 0
 --- !u!1 &6679592137092109332
 GameObject:
@@ -522,6 +528,8 @@ MonoBehaviour:
   parentDamageable: {fileID: 8820600043203833711}
   <damageMultiplier>k__BackingField: 1
   facePlayer: 1
+  lerpFace: 0
+  lerpSpeed: 0
   doNotFaceHeight: 0
 --- !u!1 &6766095179204801713
 GameObject:
@@ -721,7 +729,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 4
+  m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 240
@@ -770,13 +778,15 @@ MonoBehaviour:
   isHitScan: 0
   hitScanDamage: 0
   hitScanEffect: {fileID: 0}
-  attackDelay: 0.8
+  attackDelay: 0.7
   projectile: {fileID: 3722781976886384385, guid: 2f1976b7fbb00864f93a91d50756bd13, type: 3}
   projectileVel: 25
   bulletsPerShot: 1
-  bulletSpread: 1
+  bulletSpread: 1.5
   canInterruptAttack: 1
   interruptAttackTime: 0.4
+  canOnlyShootForwards: 0
+  forwardsDirection: {fileID: 0}
 --- !u!1 &8820600043274337226
 GameObject:
   m_ObjectHideFlags: 0

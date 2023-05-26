@@ -1084,6 +1084,7 @@ MonoBehaviour:
   shield: {fileID: 8788344935908670885}
   bossLight: {fileID: 0}
   entryDoor: {fileID: 0}
+  gameManager: {fileID: 0}
   agent: {fileID: 8788344936930177911}
   player: {fileID: 0}
   groundMask:

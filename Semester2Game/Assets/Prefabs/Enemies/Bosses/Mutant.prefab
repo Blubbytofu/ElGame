@@ -697,6 +697,8 @@ MonoBehaviour:
   parentDamageable: {fileID: 5583934822639481636}
   <damageMultiplier>k__BackingField: 1
   facePlayer: 1
+  lerpFace: 0
+  lerpSpeed: 0
   doNotFaceHeight: 1
 --- !u!1 &5583934822013465991
 GameObject:
@@ -811,6 +813,8 @@ MonoBehaviour:
   parentDamageable: {fileID: 5583934822639481636}
   <damageMultiplier>k__BackingField: 1
   facePlayer: 0
+  lerpFace: 0
+  lerpSpeed: 0
   doNotFaceHeight: 0
 --- !u!1 &5583934822639481636
 GameObject:
@@ -887,6 +891,7 @@ MonoBehaviour:
   agent: {fileID: 5583934822639481637}
   dropLoot: {fileID: 5253914836017860015}
   player: {fileID: 0}
+  gameManager: {fileID: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 64
@@ -1045,4 +1050,6 @@ MonoBehaviour:
   parentDamageable: {fileID: 5583934822639481636}
   <damageMultiplier>k__BackingField: 2
   facePlayer: 0
+  lerpFace: 0
+  lerpSpeed: 0
   doNotFaceHeight: 0

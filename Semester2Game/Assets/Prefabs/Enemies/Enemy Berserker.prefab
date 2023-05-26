@@ -197,6 +197,8 @@ MonoBehaviour:
   parentDamageable: {fileID: 6232917905794983542}
   <damageMultiplier>k__BackingField: 1
   facePlayer: 1
+  lerpFace: 0
+  lerpSpeed: 0
   doNotFaceHeight: 1
 --- !u!1 &6232917905794983542
 GameObject:
@@ -271,6 +273,7 @@ MonoBehaviour:
   agent: {fileID: 6232917905794983541}
   dropLoot: {fileID: 0}
   player: {fileID: 0}
+  gameManager: {fileID: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 64
@@ -289,7 +292,7 @@ MonoBehaviour:
   attackRange: 1.5
   aggressiveApproach: 0
   isHitScan: 1
-  hitScanDamage: 40
+  hitScanDamage: 20
   hitScanEffect: {fileID: 7923868290636452321, guid: bc38213e18f5ea84ca752d1b15edd676, type: 3}
   attackDelay: 0.5
   projectile: {fileID: 0}
@@ -298,6 +301,8 @@ MonoBehaviour:
   bulletSpread: 0
   canInterruptAttack: 0
   interruptAttackTime: 0
+  canOnlyShootForwards: 0
+  forwardsDirection: {fileID: 0}
 --- !u!1 &8325125713645834513
 GameObject:
   m_ObjectHideFlags: 0

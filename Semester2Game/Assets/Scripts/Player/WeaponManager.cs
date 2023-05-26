@@ -96,6 +96,7 @@ namespace PlayerObject
 
         public void ForceUnlockWeapon(int index)
         {
+            lastWeaponUsedID = weaponID;
             weaponID = index;
             weapons[index].GetComponent<Weapon>().owned = true;
         }

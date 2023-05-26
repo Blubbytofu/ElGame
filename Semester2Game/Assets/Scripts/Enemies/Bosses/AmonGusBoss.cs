@@ -13,6 +13,7 @@ public class AmonGusBoss : MonoBehaviour, IDamageable
     [SerializeField] private GameObject shield;
     [SerializeField] private GameObject bossLight;
     [SerializeField] private GameObject entryDoor;
+    [SerializeField] private GameManager gameManager;
 
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private GameObject player;
@@ -86,6 +87,8 @@ public class AmonGusBoss : MonoBehaviour, IDamageable
         bossLight.SetActive(false);
         entryDoor.GetComponent<MeshRenderer>().enabled = true;
         entryDoor.GetComponent<MeshCollider>().enabled = true;
+
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
     private void StartActions()
@@ -392,6 +395,7 @@ public class AmonGusBoss : MonoBehaviour, IDamageable
         if (health <= 0 && !isDead)
         {
             isDead = true;
+            gameManager.AddEnemyKilled();
             bossLight.SetActive(true);
             dropLoot.InstantiateLoot();
             Destroy(gameObject);

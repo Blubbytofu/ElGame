@@ -15,7 +15,7 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private DropLoot dropLoot;
     [SerializeField] private GameObject player;
-    //[SerializeField] private GameManager gameManager;
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private LayerMask groundMask, playerMask;
     [SerializeField] private GameObject spawnEffect;
     [SerializeField] private Collider[] childHitBoxes;
@@ -74,7 +74,7 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
         }
 
         player = GameObject.Find("Player");
-        //gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         //CheckDoor();
 
         alreadyAttacked = true;
@@ -336,27 +336,13 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
         {
             isDead = true;
             Destroy(gameObject);
-            //gameManager.enemiesKilled++;
+            gameManager.AddEnemyKilled();
 
             if (dropLoot != null)
             {
                 dropLoot.InstantiateLoot();
             }
         }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        /*
-        PlayerInventory playerInventory = collision.gameObject.GetComponent<PlayerInventory>();
-        if (playerInventory != null)
-        {
-            Rigidbody playerRb = playerInventory.gameObject.GetComponent<Rigidbody>();
-            playerRb.AddForce(2000 * (player.transform.position - transform.position).normalized, ForceMode.Impulse);
-            playerRb.AddForce(1000 * Vector3.up, ForceMode.Impulse);
-            playerInventory.TakeDamage(10);
-        }
-        */
     }
 
     private void OnDrawGizmosSelected()

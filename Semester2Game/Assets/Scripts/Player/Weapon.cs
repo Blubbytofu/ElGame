@@ -303,7 +303,7 @@ namespace PlayerObject
                                 }
                                 else if (hitPart.damageMultiplier < 1)
                                 {
-
+                                    Instantiate(bulletImpact, rayHit.point, Quaternion.LookRotation(rayHit.normal));
                                 }
                                 else if (hitPart.damageMultiplier > 1)
                                 {

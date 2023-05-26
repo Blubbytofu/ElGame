@@ -43,6 +43,9 @@ public class EnemyBodyPart : MonoBehaviour, IDamageable
 
     public void ReceiveDamage(int damage)
     {
-        parentDamageable.GetComponent<IDamageable>().ReceiveDamage((int) (damage * damageMultiplier));
+        if (parentDamageable != null)
+        {
+            parentDamageable.GetComponent<IDamageable>().ReceiveDamage((int)(damage * damageMultiplier));
+        }
     }
 }
