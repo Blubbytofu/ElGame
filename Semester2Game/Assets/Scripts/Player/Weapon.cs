@@ -355,6 +355,8 @@ namespace PlayerObject
                 {
                     GameObject playerProjectile = Instantiate(projectile, attackPoint.position, Quaternion.identity);
 
+                    Physics.IgnoreCollision(playerProjectile.GetComponent<Collider>(), playerRb.gameObject.GetComponent<Collider>(), true);
+
                     Ray directionRay = playerCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
                     Vector3 projectileDestination;

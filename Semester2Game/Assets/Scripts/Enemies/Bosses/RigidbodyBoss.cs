@@ -20,6 +20,7 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
     [SerializeField] private GameObject spawnEffect;
     [SerializeField] private Collider[] childHitBoxes;
     [SerializeField] private Rigidbody bossRb;
+    [SerializeField] private MeshRenderer meshRenderer;
 
     private int health;
     [SerializeField] private int maxHealth;
@@ -60,8 +61,14 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
 
     [SerializeField] private GameObject slowShockwave;
     [SerializeField] private int chargeIterations;
+    [SerializeField] private int chargeForce;
+    [SerializeField] private float chargingTime;
+    [SerializeField] private float chargeFinalDelay;
 
     private int lastAttackIndex;
+    private bool hasDoneSpecial;
+    [SerializeField] private Material enragedMat;
+    [SerializeField] private GameObject shield;
 
     private void Awake()
     {
@@ -131,7 +138,13 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
 
         RollAttack();
 
-        transform.LookAt(player.transform.position.ReplaceField(newY: transform.position.y));
+        //transform.LookAt(player.transform.position.ReplaceField(newY: transform.position.y));
+
+        if (health <= maxHealth / 2 && !hasDoneSpecial)
+        {
+            hasDoneSpecial = true;
+            meshRenderer.material = enragedMat;
+        }
     }
 
     private void RollAttack()
@@ -248,23 +261,22 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
 
         for (int i = 0; i < chargeIterations; i++)
         {
+            shield.SetActive(true);
+            shield.transform.LookAt(player.transform.position.ReplaceField(newY: transform.position.y));
             Vector3 finalPosition = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
             yield return new WaitForSeconds(0.25f);
-            bossRb.AddForce(50 * (finalPosition - transform.position).normalized, ForceMode.Impulse);
-            yield return new WaitForSeconds(0.25f);
+            bossRb.AddForce(chargeForce * (finalPosition - transform.position).normalized, ForceMode.Impulse);
+            yield return new WaitForSeconds(chargingTime);
             bossRb.velocity = Vector3.zero;
+            shield.SetActive(false);
 
-            GameObject wave = Instantiate(slowShockwave, attackPoint.position, Quaternion.LookRotation(transform.forward, Vector3.Cross((player.transform.position.ReplaceField(newY: transform.position.y) - transform.position).normalized, Vector3.up)));
-            foreach (Collider collider in childHitBoxes)
-            {
-                Physics.IgnoreCollision(wave.GetComponent<Collider>(), collider, true);
-            }
+            //SpawnVerticalShockwave();
 
             yield return new WaitForSeconds(0.25f);
         }
 
         DeactivateRbMode();
-        StartCoroutine(ResetAttack(0.5f));
+        StartCoroutine(ResetAttack(chargeFinalDelay));
     }
 
     private IEnumerator DashShoot()
@@ -287,12 +299,22 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
             yield return new WaitForSeconds(dashTime);
             bossRb.velocity = Vector3.zero;
             yield return new WaitForSeconds(0.1f);
-            SpawnProjectile();
+            SpawnVerticalShockwave();
+            //SpawnProjectile();
             yield return new WaitForSeconds(dashDelay);
         }
 
         DeactivateRbMode();
         StartCoroutine(ResetAttack(dashFinalDelay));
+    }
+
+    private void SpawnVerticalShockwave()
+    {
+        GameObject wave = Instantiate(slowShockwave, attackPoint.position, Quaternion.LookRotation(transform.forward, Vector3.Cross((player.transform.position.ReplaceField(newY: transform.position.y) - transform.position).normalized, Vector3.up)));
+        foreach (Collider collider in childHitBoxes)
+        {
+            Physics.IgnoreCollision(wave.GetComponent<Collider>(), collider, true);
+        }
     }
 
     private void SpawnProjectile()

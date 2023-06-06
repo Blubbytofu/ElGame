@@ -132,4 +132,4 @@ MonoBehaviour:
   indirectDamage: 70
   playerDamage: 10
   playerLaunchPower: 1000
-  explosionRadius: 1
+  explosionRadius: 2

@@ -5944,9 +5944,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 15
   knockbackForce: 1500
-  growSpeed: 1
+  growSpeed: 0.3
   sizeError: 0.5
   startingWidth: 0.01
-  startingHeight: 0.5
-  endingWidth: 2
-  endingHeight: 0.5
+  startingHeight: 2
+  endingWidth: 10
+  endingHeight: 2
