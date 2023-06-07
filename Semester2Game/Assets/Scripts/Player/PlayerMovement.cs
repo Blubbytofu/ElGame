@@ -252,7 +252,7 @@ namespace PlayerObject
 
         private void GetInput()
         {
-            if (Input.GetKeyDown(KeyCode.V))
+            if (Input.GetKeyDown(KeyCode.Backslash))
             {
                 doNoClip = !doNoClip;
                 playerRb.velocity = Vector3.zero;

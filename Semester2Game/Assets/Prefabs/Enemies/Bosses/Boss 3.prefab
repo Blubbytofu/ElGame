@@ -286,7 +286,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d88dc53659fd68a4b89a85ff422be169, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentDamageable: {fileID: 6837208879828748407}
-  <damageMultiplier>k__BackingField: 20
+  <damageMultiplier>k__BackingField: 2
   facePlayer: 1
   lerpFace: 0
   lerpSpeed: 0
@@ -383,7 +383,6 @@ GameObject:
   - component: {fileID: 6837208879828748410}
   - component: {fileID: 6837208879828748411}
   - component: {fileID: 6837208879828748404}
-  - component: {fileID: 6837208879828748405}
   m_Layer: 0
   m_Name: Boss 3
   m_TagString: Untagged
@@ -462,7 +461,7 @@ MonoBehaviour:
   bar: {fileID: 6053626146996168996}
   healthNumber: {fileID: 4782160752339594636}
   agent: {fileID: 6837208879828748410}
-  dropLoot: {fileID: 6837208879828748405}
+  dropLoot: {fileID: 0}
   player: {fileID: 0}
   gameManager: {fileID: 0}
   groundMask:
@@ -476,6 +475,7 @@ MonoBehaviour:
   - {fileID: 6837208878846182887}
   bossRb: {fileID: 6837208879828748411}
   meshRenderer: {fileID: 6837208878846182886}
+  exit: {fileID: 0}
   maxHealth: 5000
   firstSpawnDelay: 1
   walkPointStrafeRange: 3
@@ -488,38 +488,23 @@ MonoBehaviour:
   highShockwavePoint: {fileID: 823934554}
   lowShockwavePoint: {fileID: 1225856033}
   shockwaveIterations: 3
-  shockWaveFinalDelay: 0.5
+  shockWaveFinalDelay: 2
   projectile: {fileID: 775466060635474356, guid: 7adfa786b114a8843bbf913a44eb9791, type: 3}
-  projectileVel: 40
-  bulletsPerShot: 1
+  projectileVel: 30
+  bulletsPerShot: 3
   attackPoint: {fileID: 6837208879206688828}
-  dashIterations: 7
+  dashIterations: 4
   dashForce: 50
   dashTime: 0.12
   dashDelay: 0.2
-  dashFinalDelay: 0.5
+  dashFinalDelay: 2
   slowShockwave: {fileID: 3169129246056993921, guid: 6d921b49e1d7dbf4ca9d57e8ddef0ce6, type: 3}
-  chargeIterations: 5
+  chargeIterations: 3
   chargeForce: 75
   chargingTime: 0.2
-  chargeFinalDelay: 0.5
-  enragedMat: {fileID: 2100000, guid: ebc7f94136c271a4c9f49c99b73effc3, type: 2}
+  chargeFinalDelay: 2
+  enragedMat: {fileID: 2100000, guid: 42e26e838cb21e944aa7de2aae4edefc, type: 2}
   shield: {fileID: 6775772019248983991}
---- !u!114 &6837208879828748405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6837208879828748407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e336e48519fcc864c905ab33a90ad4a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  randomiseElseDropAll: 0
-  lootTable: []
-  lootChances: 
 --- !u!1001 &6837208879242354562
 PrefabInstance:
   m_ObjectHideFlags: 0

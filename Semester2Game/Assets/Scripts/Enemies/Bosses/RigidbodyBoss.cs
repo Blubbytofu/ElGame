@@ -21,6 +21,7 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
     [SerializeField] private Collider[] childHitBoxes;
     [SerializeField] private Rigidbody bossRb;
     [SerializeField] private MeshRenderer meshRenderer;
+    [SerializeField] private GameObject exit;
 
     private int health;
     [SerializeField] private int maxHealth;
@@ -84,6 +85,8 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         //CheckDoor();
 
+        exit = GameObject.Find("Exit");
+
         alreadyAttacked = true;
         StartCoroutine(ResetAttack(firstSpawnDelay));
     }
@@ -140,10 +143,18 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
 
         //transform.LookAt(player.transform.position.ReplaceField(newY: transform.position.y));
 
-        if (health <= maxHealth / 2 && !hasDoneSpecial)
+        if (health <= maxHealth / 3 && !hasDoneSpecial)
         {
             hasDoneSpecial = true;
             meshRenderer.material = enragedMat;
+
+            chargeFinalDelay = 0.75f;
+            dashFinalDelay = 0.75f;
+            shockWaveFinalDelay = 0.75f;
+
+            chargeIterations = 5;
+            dashIterations = 6;
+            shockwaveIterations = 4;
         }
     }
 
@@ -299,8 +310,7 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
             yield return new WaitForSeconds(dashTime);
             bossRb.velocity = Vector3.zero;
             yield return new WaitForSeconds(0.1f);
-            SpawnVerticalShockwave();
-            //SpawnProjectile();
+            SpawnProjectile();
             yield return new WaitForSeconds(dashDelay);
         }
 
@@ -341,6 +351,7 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
             }
 
             rb.AddForce(projectileVel * (player.transform.position - attackPoint.position).normalized, ForceMode.Impulse);
+            rb.AddForce(15 * Vector2.down, ForceMode.Impulse);
         }
     }
 
@@ -359,6 +370,7 @@ public class RigidbodyBoss : MonoBehaviour, IDamageable
             isDead = true;
             Destroy(gameObject);
             gameManager.AddEnemyKilled();
+            exit.GetComponent<IInteractable>().Interact(gameObject);
 
             if (dropLoot != null)
             {

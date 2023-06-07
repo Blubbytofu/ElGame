@@ -138623,7 +138623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bb0d8ed22a2218489b17799edb2fb70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <message>k__BackingField: Attack Using "Left Click"
+  <message>k__BackingField: Attack using "Left Click"
   isSecret: 0
 --- !u!65 &1833792937
 BoxCollider:
